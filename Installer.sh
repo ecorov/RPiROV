@@ -122,11 +122,12 @@ case "$1" in
         sudo cp -r etc/rc_local_run/rc.local /etc/
         sudo chmod 755 /etc/rc.local
 
-        cat etc/motion/motion.conf.1 > etc/motion/motion.conf
-        sudo cp -r etc/motion/motion.conf /etc/motion/
-        sudo chmod 640 /etc/motion/motion.conf
-        sudo chgrp www-data /etc/motion/motion.conf
-        sudo chmod +rrr /etc/motion/motion.conf        
+        #cat etc/motion/motion.conf.1 > etc/motion/motion.conf
+        #sudo cp -r etc/motion/motion.conf /etc/motion/
+        #sudo chmod 640 /etc/motion/motion.conf
+        #sudo chgrp www-data /etc/motion/motion.conf
+        #sudo chmod +rrr /etc/motion/motion.conf 
+		
         sudo usermod -a -G video www-data
         if [ -e /var/www/uconfig ]; then
           sudo chown www-data:www-data /var/www/uconfig
@@ -175,7 +176,7 @@ case "$1" in
   stop)
         sudo killall raspimjpeg
         sudo killall php
-        sudo killall motion
+        #sudo killall motion
         echo "Stopped"
         ;;
 
