@@ -40,8 +40,8 @@ case "$1" in
 
   remove)
         sudo killall raspimjpeg
-        sudo apt-get remove -y apache2 php5 libapache2-mod-php5 gpac motion zip
-        sudo apt-get autoremove -y
+        #sudo apt-get remove -y apache2 php5 libapache2-mod-php5 gpac motion zip
+        #sudo apt-get autoremove -y
 
         sudo rm -r /var/www/*
         sudo rm /etc/sudoers.d/RPI_Cam_Web_Interface
