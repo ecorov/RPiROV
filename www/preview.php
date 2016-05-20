@@ -284,7 +284,7 @@
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
          <div class="container">
             <div class="navbar-header">
-               <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-chevron-left"></span>Home</a>
+               <a class="navbar-brand" href="index.php">Home</a>
             </div>
          </div>
       </div>
