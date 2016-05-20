@@ -176,7 +176,7 @@ case "$1" in
   stop)
         sudo killall raspimjpeg
         sudo killall php
-        #sudo killall motion
+        sudo killall motion
         echo "Stopped"
         ;;
 
