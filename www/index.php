@@ -161,7 +161,6 @@
             <input id="video_button" type="button" class="btn btn-primary">
             <input id="image_button" type="button" class="btn btn-primary">
             <input id="timelapse_button" type="button" class="btn btn-primary">
-            <input id="md_button" type="button" class="btn btn-primary">
             <input id="halt_button" type="button" class="btn btn-danger">
          </div>
       </div>
