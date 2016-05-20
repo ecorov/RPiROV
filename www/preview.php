@@ -281,13 +281,9 @@
       <script src="js/script.js"></script>
    </head>
    <body>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-         <div class="container">
-            <div class="navbar-header">
-               <a class="navbar-brand" href="index.php">Home</a>
-            </div>
-         </div>
-      </div>
+
+    <a class="navbar-brand" href="index.php">Home</a>
+
     
       <div id="progress" style="text-align:center;margin-left:20px;width:500px;border:1px solid #ccc;">&nbsp;</div>
     
