@@ -35,7 +35,6 @@
 # The folder name must be a subfolder of /var/www/ which will be created
 #  accordingly, and must not include leading nor trailing / character.
 # Default upstream behaviour: rpicamdir="" (installs in /var/www/)
-rpicamdir=""
 
 case "$1" in
 
@@ -44,7 +43,7 @@ case "$1" in
         sudo apt-get remove -y apache2 php5 libapache2-mod-php5 gpac motion zip
         sudo apt-get autoremove -y
 
-        sudo rm -r /var/www/$rpicamdir/*
+        sudo rm -r /var/www/*
         sudo rm /etc/sudoers.d/RPI_Cam_Web_Interface
         sudo rm /usr/bin/raspimjpeg
         sudo rm /etc/raspimjpeg
@@ -71,33 +70,30 @@ case "$1" in
         git pull origin master
         sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion zip
 
-        sudo mkdir -p /var/www/$rpicamdir/media
-        sudo cp -r www/* /var/www/$rpicamdir/
-        if [ -e /var/www/$rpicamdir/index.html ]; then
-          sudo rm /var/www/$rpicamdir/index.html
+        sudo mkdir -p /var/www/media
+        sudo cp -r www/* /var/www/
+        if [ -e /var/www/index.html ]; then
+          sudo rm /var/www/index.html
         fi
-        sudo chown -R www-data:www-data /var/www/$rpicamdir
+        sudo chown -R www-data:www-data /var/www
         
-        if [ ! -e /var/www/$rpicamdir/FIFO ]; then
-          sudo mknod /var/www/$rpicamdir/FIFO p
+        if [ ! -e /var/www/FIFO ]; then
+          sudo mknod /var/www/FIFO p
         fi
-        sudo chmod 666 /var/www/$rpicamdir/FIFO
+        sudo chmod 666 /var/www/FIFO
         
-        if [ ! -e /var/www/$rpicamdir/FIFO1 ]; then
-          sudo mknod /var/www/$rpicamdir/FIFO1 p
+        if [ ! -e /var/www/FIFO1 ]; then
+          sudo mknod /var/www/FIFO1 p
         fi
-        sudo chmod 666 /var/www/$rpicamdir/FIFO1
-        sudo chmod 755 /var/www/$rpicamdir/raspizip.sh
+        sudo chmod 666 /var/www/FIFO1
+        sudo chmod 755 /var/www/raspizip.sh
 
-        if [ ! -e /var/www/$rpicamdir/cam.jpg ]; then
-          sudo ln -sf /run/shm/mjpeg/cam.jpg /var/www/$rpicamdir/cam.jpg
+        if [ ! -e /var/www/cam.jpg ]; then
+          sudo ln -sf /run/shm/mjpeg/cam.jpg /var/www/cam.jpg
         fi
 
-        if [ "$rpicamdir" == "" ]; then
-          cat etc/apache2/sites-available/default.1 > etc/apache2/sites-available/default
-        else
-          sed -e "s/Directory \/var\/www/Directory \/var\/www\/$rpicamdir/" etc/apache2/sites-available/default.1 > etc/apache2/sites-available/default
-        fi
+     
+        cat etc/apache2/sites-available/default.1 > etc/apache2/sites-available/default
         sudo cp -r etc/apache2/sites-available/default /etc/apache2/sites-available/
         sudo chmod 644 /etc/apache2/sites-available/default
         sudo cp etc/apache2/conf.d/other-vhosts-access-log /etc/apache2/conf.d/other-vhosts-access-log
@@ -112,40 +108,28 @@ case "$1" in
           sudo ln -s /opt/vc/bin/raspimjpeg /usr/bin/raspimjpeg
         fi
 
-        if [ "$rpicamdir" == "" ]; then
-          cat etc/raspimjpeg/raspimjpeg.1 > etc/raspimjpeg/raspimjpeg
-        else
-          sed -e "s/www/www\/$rpicamdir/" etc/raspimjpeg/raspimjpeg.1 > etc/raspimjpeg/raspimjpeg
-        fi
+        cat etc/raspimjpeg/raspimjpeg.1 > etc/raspimjpeg/raspimjpeg
         sudo cp -r /etc/raspimjpeg /etc/raspimjpeg.bak
         sudo cp -r etc/raspimjpeg/raspimjpeg /etc/
         sudo chmod 644 /etc/raspimjpeg
-        if [ ! -e /var/www/$rpicamdir/raspimjpeg ]; then
-          sudo ln -s /etc/raspimjpeg /var/www/$rpicamdir/raspimjpeg
+        if [ ! -e /var/www/raspimjpeg ]; then
+          sudo ln -s /etc/raspimjpeg /var/www/raspimjpeg
         fi
 
 
-        if [ "$rpicamdir" == "" ]; then
-          cat etc/rc_local_run/rc.local.1 > etc/rc_local_run/rc.local
-        else
-          sed -e "s/\/var\/www/\/var\/www\/$rpicamdir/" etc/rc_local_run/rc.local.1 > etc/rc_local_run/rc.local
-        fi
+        cat etc/rc_local_run/rc.local.1 > etc/rc_local_run/rc.local
         sudo cp -r /etc/rc.local /etc/rc.local.bak
         sudo cp -r etc/rc_local_run/rc.local /etc/
         sudo chmod 755 /etc/rc.local
 
-        if [ "$rpicamdir" == "" ]; then
-          cat etc/motion/motion.conf.1 > etc/motion/motion.conf
-        else
-          sed -e "s/www/www\/$rpicamdir/" etc/motion/motion.conf.1 > etc/motion/motion.conf
-        fi
+        cat etc/motion/motion.conf.1 > etc/motion/motion.conf
         sudo cp -r etc/motion/motion.conf /etc/motion/
         sudo chmod 640 /etc/motion/motion.conf
         sudo chgrp www-data /etc/motion/motion.conf
         sudo chmod +rrr /etc/motion/motion.conf        
         sudo usermod -a -G video www-data
-        if [ -e /var/www/$rpicamdir/uconfig ]; then
-          sudo chown www-data:www-data /var/www/$rpicamdir/uconfig
+        if [ -e /var/www/uconfig ]; then
+          sudo chown www-data:www-data /var/www/uconfig
         fi
 
         echo "Installer finished"
@@ -158,12 +142,12 @@ case "$1" in
 
         sudo cp -r bin/raspimjpeg /opt/vc/bin/
         sudo chmod 755 /opt/vc/bin/raspimjpeg
-        sudo cp -r www/* /var/www/$rpicamdir/
+        sudo cp -r www/* /var/www/
 
         if [ ! -e /var/www/raspimjpeg ]; then
           sudo ln -s /etc/raspimjpeg /var/www/raspimjpeg
         fi
-        sudo chmod 755 /var/www/$rpicamdir/raspizip.sh
+        sudo chmod 755 /var/www/raspizip.sh
 
         echo "Update finished"
         ;;
