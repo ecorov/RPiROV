@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+/*
    define('BASE_DIR', dirname(__FILE__));
    require_once(BASE_DIR.'/config.php');
    $config = array();
@@ -143,6 +144,7 @@
    $video_fps = $config['video_fps'];
    $divider = $config['divider'];
    $width = $config['width'];
+   */
    ?>
 <html>
    <head>
