@@ -282,7 +282,6 @@
    <body>
 
     <a class="navbar-brand" href="index.php">Home</a>    
-      <div id="progress" style="text-align:center;margin-left:20px;width:500px;border:1px solid #ccc;">&nbsp;</div>
       <div class="container-fluid">
       <form action="preview.php" method="POST">
       <?php
@@ -329,18 +328,7 @@
       ?>
       </form>
       
-
-      
       </div>
       
-      <?php 
-	  /*
-      if ($zipname) {
-         echo '<script language="javascript">get_zip_progress("' . $zipname . '");</script>';
-      } else {
-         echo '<script language="javascript">document.getElementById("progress").style.display="none";</script>';
-      }
-	  */
-      ?>
    </body>
 </html>
