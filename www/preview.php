@@ -315,39 +315,32 @@
                echo "<video width='" . $previewSize . "px' controls><source src='" . MEDIA_PATH . "/$pFile' type='video/mp4'>Your browser does not support the video tag.</video>";
             }
          }
-         //echo "<h1>" . TXT_FILES . "&nbsp;&nbsp;";
-         //echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='selectNone'>" . BTN_SELECTNONE . "</button>";
-         //echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='selectAll'>" . BTN_SELECTALL . "</button>";
-         //echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='zipSel'>" . BTN_GETZIP . "</button>";
-         //echo "&nbsp;&nbsp;<button class='btn btn-danger' type='submit' name='action' value='deleteSel' onclick=\"return confirm('Are you sure?');\">" . BTN_DELETESEL . "</button>";
-         //echo "&nbsp;&nbsp;<button class='btn btn-danger' type='submit' name='action' value='deleteAll' onclick=\"return confirm('Are you sure?');\">" . BTN_DELETEALL . "</button>";
-         //echo "</h1>";
+
          diskUsage();
-         if ($debugString !="") echo "$debugString<br>";
-         if(count($thumbnails) == 0) echo "<p>No videos/images saved</p>";
-         else {
+
+         if(count($thumbnails) == 0) {
+			echo "<p>No videos/images saved</p>";
+		 } else {
             foreach($thumbnails as $file) {
               drawFile($file, $thumbSize, $dSelect);
             }
          }
-         //echo "<p><p>" . TXT_PREVIEW . " <input type='text' size='4' name='previewSize' value='$previewSize'>";
-         //echo "&nbsp;&nbsp;" . TXT_THUMB . " <input type='text' size='3' name='thumbSize' value='$thumbSize'>";
-         //echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='updateSizes'>" . BTN_UPDATESIZES . "</button>";
+
       ?>
       </form>
       
-      <form id="zipform" method="post" action="preview.php" style="display:none;">
-         <input id="zipdownload" type="hidden" name="zipdownload"/>
-      </form>
+
       
       </div>
       
       <?php 
+	  /*
       if ($zipname) {
          echo '<script language="javascript">get_zip_progress("' . $zipname . '");</script>';
       } else {
          echo '<script language="javascript">document.getElementById("progress").style.display="none";</script>';
       }
+	  */
       ?>
    </body>
 </html>
