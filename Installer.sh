@@ -44,7 +44,7 @@ case "$1" in
         #sudo apt-get autoremove -y
 
         sudo rm -r /var/www/*
-        sudo rm /etc/sudoers.d/RPI_Cam_Web_Interface
+        sudo rm /etc/sudoers.d/RPiROV
         sudo rm /usr/bin/raspimjpeg
         sudo rm /etc/raspimjpeg
         sudo cp -r /etc/rc.local.bak /etc/rc.local
@@ -99,8 +99,8 @@ case "$1" in
         sudo cp etc/apache2/conf.d/other-vhosts-access-log /etc/apache2/conf.d/other-vhosts-access-log
         sudo chmod 644 /etc/apache2/conf.d/other-vhosts-access-log
 
-        sudo cp etc/sudoers.d/RPI_Cam_Web_Interface /etc/sudoers.d/
-        sudo chmod 440 /etc/sudoers.d/RPI_Cam_Web_Interface
+        sudo cp etc/sudoers.d/RPiROV /etc/sudoers.d/
+        sudo chmod 440 /etc/sudoers.d/RPiROV
 
         sudo cp -r bin/raspimjpeg /opt/vc/bin/
         sudo chmod 755 /opt/vc/bin/raspimjpeg
