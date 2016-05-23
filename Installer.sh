@@ -44,7 +44,7 @@ case "$1" in
         #sudo apt-get autoremove -y
 
         sudo rm -r /var/www/*
-        sudo rm /etc/sudoers.d/RPiROV
+        sudo rm /etc/sudoers.d/RPI_Cam_Web_Interface
         sudo rm /usr/bin/raspimjpeg
         sudo rm /etc/raspimjpeg
         sudo cp -r /etc/rc.local.bak /etc/rc.local
