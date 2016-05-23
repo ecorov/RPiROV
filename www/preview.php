@@ -275,7 +275,6 @@
       <meta name="viewport" content="width=550, initial-scale=1">
       <title>RPi ROV Download</title>
       <link rel="stylesheet" href="css/preview.css" />
-      <script src="js/style_minified.js"></script>
       <script src="js/script.js"></script>
    </head>
    <body>

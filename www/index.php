@@ -3,7 +3,6 @@
    <head>
       <meta name="viewport" content="width=550, initial-scale=1">
       <title>RPi ROV</title>
-      <script src="js/style_minified.js"></script>
       <script src="js/script.js"></script>
       <script src="js/pipan.js"></script>
    </head>
