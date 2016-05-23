@@ -288,7 +288,7 @@
          $thumbnails = getThumbnails();
          if ($pFile != "") {
             $pIndex = array_search($tFile, $thumbnails);
-            echo "<h1>" . TXT_PREVIEW . ":  " . getFileType($tFile) . getFileIndex($tFile);
+            echo "<h1>" . getFileType($tFile) . getFileIndex($tFile);
             if ($pIndex > 0)
                $attr = 'onclick="location.href=\'preview.php?preview=' . $thumbnails[$pIndex-1] . '\'"';
             else
@@ -301,6 +301,7 @@
             echo "&nbsp;&nbsp;<input type='button' value='&rarr;' class='btn btn-primary' name='next' $attr>";
             echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='download1' value='$tFile'>" . BTN_DOWNLOAD . "</button>";
             echo "&nbsp;<button class='btn btn-danger' type='submit' name='delete1' value='$tFile'>" . BTN_DELETE . "</button>";
+			//Convert Timelapse image to video
             if(getFileType($tFile) == "t") {
                $convertCmd = file_get_contents(BASE_DIR . '/' . CONVERT_CMD);
                echo "&nbsp;<button class='btn btn-primary' type='submit' name='convert' value='$tFile'>" . BTN_CONVERT . "</button>";
@@ -308,6 +309,7 @@
             } else {
                echo "<br></h1>";
             }
+			//Preview;
             if(substr($pFile, -3) == "jpg") {
                echo "<a href='" . MEDIA_PATH . "/$tFile' target='_blank'><img src='" . MEDIA_PATH . "/$pFile' width='" . $previewSize . "px'></a>";
             } else {
