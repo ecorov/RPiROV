@@ -164,17 +164,15 @@
             <input id="halt_button" type="button" class="btn btn-danger">
          </div>
       </div>
+	  
       <div id="secondary-buttons" class="container-fluid text-center" style="display:block;" >
-         <?php 
-		 //if (file_exists("pipan_on")) pipan_controls(); 
-		 ?>
          <a href="preview.php" class="btn btn-default">Download Videos and Images</a>
       </div>
     
       <div class="container-fluid text-center">
          <div class="panel-group" id="accordion" style="display:block;" >
 			<input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
-            <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
+			<input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
          </div>
       </div>
    </body>
