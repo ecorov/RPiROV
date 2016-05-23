@@ -227,8 +227,7 @@
       $fWidth = max($ts + 4, 140);
       echo "<fieldset class='fileicon' style='width:" . $fWidth . "px;'>";
       echo "<legend class='fileicon'>";
-      echo "<button type='submit' name='delete1' value='$f' class='fileicondelete' style='background-image:url(delete.png);
-'></button>";
+      echo "<button type='submit' name='delete1' value='$f' class='fileicondelete' style='background-image:url(delete.png);'></button>";
       echo "&nbsp;&nbsp;$fNumber&nbsp;";
       echo "<img src='$fIcon' style='width:24px'/>";
       echo "<input type='checkbox' name='check_list[]' $sel value='$f' style='float:right;'/>";
@@ -284,11 +283,11 @@
     <a class="navbar-brand" href="index.php">Home</a>    
       <div class="container-fluid">
       <form action="preview.php" method="POST">
-      <?php
+           <?php
          $thumbnails = getThumbnails();
          if ($pFile != "") {
             $pIndex = array_search($tFile, $thumbnails);
-            echo "<h1>" . getFileType($tFile) . getFileIndex($tFile);
+            echo "<h1>" . TXT_PREVIEW . ":  " . getFileType($tFile) . getFileIndex($tFile);
             if ($pIndex > 0)
                $attr = 'onclick="location.href=\'preview.php?preview=' . $thumbnails[$pIndex-1] . '\'"';
             else
@@ -301,7 +300,6 @@
             echo "&nbsp;&nbsp;<input type='button' value='&rarr;' class='btn btn-primary' name='next' $attr>";
             echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='download1' value='$tFile'>" . BTN_DOWNLOAD . "</button>";
             echo "&nbsp;<button class='btn btn-danger' type='submit' name='delete1' value='$tFile'>" . BTN_DELETE . "</button>";
-			//Convert Timelapse image to video
             if(getFileType($tFile) == "t") {
                $convertCmd = file_get_contents(BASE_DIR . '/' . CONVERT_CMD);
                echo "&nbsp;<button class='btn btn-primary' type='submit' name='convert' value='$tFile'>" . BTN_CONVERT . "</button>";
@@ -309,28 +307,46 @@
             } else {
                echo "<br></h1>";
             }
-			//Preview;
             if(substr($pFile, -3) == "jpg") {
                echo "<a href='" . MEDIA_PATH . "/$tFile' target='_blank'><img src='" . MEDIA_PATH . "/$pFile' width='" . $previewSize . "px'></a>";
             } else {
                echo "<video width='" . $previewSize . "px' controls><source src='" . MEDIA_PATH . "/$pFile' type='video/mp4'>Your browser does not support the video tag.</video>";
             }
          }
-
+         echo "<h1>" . TXT_FILES . "&nbsp;&nbsp;";
+         echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='selectNone'>" . BTN_SELECTNONE . "</button>";
+         echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='selectAll'>" . BTN_SELECTALL . "</button>";
+         echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='zipSel'>" . BTN_GETZIP . "</button>";
+         echo "&nbsp;&nbsp;<button class='btn btn-danger' type='submit' name='action' value='deleteSel' onclick=\"return confirm('Are you sure?');\">" . BTN_DELETESEL . "</button>";
+         echo "&nbsp;&nbsp;<button class='btn btn-danger' type='submit' name='action' value='deleteAll' onclick=\"return confirm('Are you sure?');\">" . BTN_DELETEALL . "</button>";
+         echo "</h1>";
          diskUsage();
-
-         if(count($thumbnails) == 0) {
-			echo "<p>No videos/images saved</p>";
-		 } else {
+         if ($debugString !="") echo "$debugString<br>";
+         if(count($thumbnails) == 0) echo "<p>No videos/images saved</p>";
+         else {
             foreach($thumbnails as $file) {
               drawFile($file, $thumbSize, $dSelect);
             }
          }
-
+         echo "<p><p>" . TXT_PREVIEW . " <input type='text' size='4' name='previewSize' value='$previewSize'>";
+         echo "&nbsp;&nbsp;" . TXT_THUMB . " <input type='text' size='3' name='thumbSize' value='$thumbSize'>";
+         echo "&nbsp;&nbsp;<button class='btn btn-primary' type='submit' name='action' value='updateSizes'>" . BTN_UPDATESIZES . "</button>";
       ?>
       </form>
       
+      <form id="zipform" method="post" action="preview.php" style="display:none;">
+         <input id="zipdownload" type="hidden" name="zipdownload"/>
+      </form>
+      
       </div>
+      
+      <?php 
+      if ($zipname) {
+         echo '<script language="javascript">get_zip_progress("' . $zipname . '");</script>';
+      } else {
+         echo '<script language="javascript">document.getElementById("progress").style.display="none";</script>';
+      }
+      ?>
       
    </body>
 </html>
