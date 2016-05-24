@@ -63,6 +63,7 @@
 		position: absolute;
 		top: 10px;
 		right: 10px;
+		display: inline;
 	}
 	#debug{
 		position: absolute;
