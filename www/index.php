@@ -69,7 +69,7 @@
 	  
 	  
 	  $( "#slider" ).slider({
-		//orientation: "vertical",
+		orientation: "vertical",
 		min:0,
 		max:100,
 		value: 50,
