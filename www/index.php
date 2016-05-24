@@ -68,6 +68,7 @@
 		position: absolute;
 		top: 10px;
 		left: 200px;
+		background-color: white;
 	}
   </style>
   
