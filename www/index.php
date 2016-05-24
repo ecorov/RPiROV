@@ -10,7 +10,7 @@
 
       <div class="container-fluid text-center liveimage">
    
-		 <div><img id="mjpeg_dest" <?php if(file_exists("pipan_on")) echo "ontouchstart=\"pipan_start()\""; ?> onclick="toggle_fullscreen(this);" src="/loading.jpg"></div>
+		 <div><img id="mjpeg_dest" src="/loading.jpg"></div>
 
          <div id="main-buttons" style="display:block;" >
             <input id="video_button" type="button" class="btn btn-primary">
