@@ -44,6 +44,7 @@
 	}
 
 	#download {
+		background-color: white;
 		position: absolute;
 		top: 10px;
 		left:10px;	
@@ -58,6 +59,11 @@
 		width: 100vw;
 		height: 100vh;
 	}
+	#system{
+		position: absolute;
+		top: 10px;
+		right: 0px;
+	}
   </style>
   
   
@@ -71,11 +77,14 @@
   <input id="image_button" type="button" class="btn btn-primary">
   <input id="timelapse_button" type="button" class="btn btn-primary">
   </div>
-  <input id="halt_button" type="button" class="btn btn-danger">
-  <a id="download" href="preview.php" class="btn btn-default">Download</a>
-  <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
-  <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
   
+  <a id="download" href="preview.php" class="btn btn-default">Download</a>
+  
+  <div id="system">
+	  <input id="halt_button" type="button" class="btn btn-danger">
+	  <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
+	  <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
+  </div>
   <div id="boundary"><div id="ctrlrod"></div></div>
   <p id="debug"></p>
   <div id="slider"></div>
