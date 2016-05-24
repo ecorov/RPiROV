@@ -31,6 +31,25 @@
 	  background-color: red;
 
 	}
+	
+	#slider {
+	//border: 1px solid red;
+    background: green;
+    height: .8em;
+    position: relative;
+    display: block;
+
+	}
+	#slider a{
+	//border: 1px solid red;
+    background: red;
+	    top: -.3em;
+    margin-left: -.6em
+	    position: absolute;
+    z-index: 2;
+    width: 1.2em;
+    height: 1.2em;
+	}
   </style>
   
 </head>
