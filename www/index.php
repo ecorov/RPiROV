@@ -38,7 +38,7 @@
 	}
 	#slider {
 		position: absolute;
-		height: 300px;
+		height: 400px;
 		bottom: 10px;
 		left:10px;		
 	}
@@ -87,15 +87,18 @@
   <a id="download" href="preview.php" class="btn btn-default">Download</a>
   
   <div id="system">
-	  <input id="halt_button" type="button" class="btn btn-danger">
-	  <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
-	  <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
+      <a id="showsys">&lt;</a>
+	  
+	  <div id="syscmd" style="display:none;">
+		  <input id="halt_button" type="button" class="btn btn-danger">
+		  <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
+		  <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
+	  </div>
   </div>
+  
   <div id="boundary"><div id="ctrlrod"></div></div>
   <p id="debug"></p>
   <div id="slider"></div>
-  
-  
   
     <script>
       $("#ctrlrod").draggable ({
@@ -103,13 +106,9 @@
 		revert: "invalid",
 		revertDuration: 10,
 		drag: function() {
-		    console.log($( this ).css( "left" ))
-			console.log($( this ).css( "top" ))
 			document.getElementById("debug").innerHTML = $( this ).css( "left" ) + ":" + $( this ).css( "top" );
 		},
 		stop: function () {
-		    console.log($( this ).css( "left" ))
-			console.log($( this ).css( "top" ))
 			document.getElementById("debug").innerHTML = $( this ).css( "left" ) + ":" + $( this ).css( "top" );
         }
       });
@@ -124,8 +123,19 @@
 		console.log($( "#slider" ).slider( "value" ))
 		document.getElementById("debug").innerHTML = $( "#slider" ).slider( "value" );
 		}
-		
 	  });
+	  
+	  $("#showsys").on('click', function() {
+		   if ($( "#syscmd" ).css( "display" ) == "none") {
+			   $( "#syscmd" ).css( "display", "block" ) 
+			   $("#showsys").text("&lt;")
+		   } else if ($( "#syscmd" ).css( "display" ) == "block") {
+			   $( "#syscmd" ).css( "display", "none" ) 
+			   $("#showsys").text("&gt;")
+		   }
+
+		});
+		
     </script>
 	
 	
