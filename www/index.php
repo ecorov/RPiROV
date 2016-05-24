@@ -51,6 +51,7 @@
       $("#ctrlrod").draggable ({
         containment : "#boundary",
 		revert: "invalid",
+		revertDuration: 10,
 		drag: function() {
 		    console.log($( this ).css( "left" ))
 			console.log($( this ).css( "top" ))
