@@ -40,11 +40,13 @@
 	}
 
 	#download {
+		position: absolute;
 		top: 10px;
 		left:10px;	
 	}
 	
 	#camera{
+		position: absolute;
 		bottom: 10px;
 		left: 200px;
 	}
