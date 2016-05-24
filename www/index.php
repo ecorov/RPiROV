@@ -55,7 +55,12 @@
 		    console.log($( this ).css( "left" ))
 			console.log($( this ).css( "top" ))
 			document.getElementById("debug").innerHTML = $( this ).css( "left" ) + ":" + $( this ).css( "top" );
-		}
+		},
+		stop: function () {
+		    console.log($( this ).css( "left" ))
+			console.log($( this ).css( "top" ))
+			document.getElementById("debug").innerHTML = $( this ).css( "left" ) + ":" + $( this ).css( "top" );
+        }
       });
 	  
     </script>
