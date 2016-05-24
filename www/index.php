@@ -34,6 +34,7 @@
 
 	}
 	#slider {
+		position: absolute;
 		height: 300px;
 		bottom: 10px;
 		left:10px;		
