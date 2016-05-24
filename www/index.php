@@ -87,7 +87,7 @@
   <a id="download" href="preview.php" class="btn btn-default">Download</a>
   
   <div id="system">
-      <a id="showsys">&lt;</a>
+      <a id="showsys" style="background-color:white;">&lt;</a>
 	  
 	  <div id="syscmd" style="display:none;">
 		  <input id="halt_button" type="button" class="btn btn-danger">
