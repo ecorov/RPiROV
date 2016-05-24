@@ -50,7 +50,10 @@
 		bottom: 10px;
 		left: 200px;
 	}
-	
+	img {
+		width: 100vw;
+		height: 100vh;
+	}
   </style>
   
   
