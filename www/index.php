@@ -87,7 +87,7 @@
   <a id="download" href="preview.php" class="btn btn-default">Download</a>
   
   <div id="system">
-      <a id="showsys" style="background-color:white;">&lt;</a>
+      <a id="showsys" style="background-color:white; padding: 3px;">&lt;</a>
 	  
 	  <div id="syscmd" style="display:none;">
 		  <input id="halt_button" type="button" class="btn btn-danger">
@@ -128,10 +128,10 @@
 	  $("#showsys").on('click', function() {
 		   if ($( "#syscmd" ).css( "display" ) == "none") {
 			   $( "#syscmd" ).css( "display", "block" ) 
-			   $("#showsys").text("< ")
+			   $("#showsys").text("> ")
 		   } else if ($( "#syscmd" ).css( "display" ) == "block") {
 			   $( "#syscmd" ).css( "display", "none" ) 
-			   $("#showsys").text("> ")
+			   $("#showsys").text("< ")
 		   }
 
 		});
