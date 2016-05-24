@@ -62,7 +62,7 @@
 	#system{
 		position: absolute;
 		top: 10px;
-		right: 0px;
+		right: 10px;
 	}
 	#debug{
 		position: absolute;
@@ -128,10 +128,10 @@
 	  $("#showsys").on('click', function() {
 		   if ($( "#syscmd" ).css( "display" ) == "none") {
 			   $( "#syscmd" ).css( "display", "block" ) 
-			   $("#showsys").text("&lt;")
+			   $("#showsys").text("< ")
 		   } else if ($( "#syscmd" ).css( "display" ) == "block") {
 			   $( "#syscmd" ).css( "display", "none" ) 
-			   $("#showsys").text("&gt;")
+			   $("#showsys").text("> ")
 		   }
 
 		});
