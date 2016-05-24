@@ -28,10 +28,10 @@
 	#ctrlrod {
 	z-index: 99;
 	  position: relative;
-	  top:135px;
-	  left:135px;
-	  width: 30px;
-	  height: 30px;
+	  top:120px;
+	  left:120px;
+	  width: 60px;
+	  height: 60px;
 	  border-radius: 15px;
 	  background-color: red;
 
