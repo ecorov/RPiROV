@@ -64,6 +64,11 @@
 		top: 10px;
 		right: 0px;
 	}
+	#debug{
+		position: absolute;
+		top: 10px;
+		left: 200px;
+	}
   </style>
   
   
