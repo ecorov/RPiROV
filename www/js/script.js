@@ -105,8 +105,7 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("halt_button").onclick = function() {send_cmd("ru 0");};
       halted = 0;
 	  updatePreview();
-    }
-    else if(ajax_status.responseText == "md_ready") {
+    } else if(ajax_status.responseText == "md_ready") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
       document.getElementById("video_button").onclick = function() {};
@@ -121,8 +120,7 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("halt_button").onclick = function() {};
       halted = 0;
 	  updatePreview();
-    }
-    else if(ajax_status.responseText == "video") {
+    } else if(ajax_status.responseText == "video") {
       document.getElementById("video_button").disabled = false;
       document.getElementById("video_button").value = "record video stop";
       document.getElementById("video_button").onclick = function() {send_cmd("ca 0");};
@@ -135,8 +133,7 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("halt_button").disabled = true;
       document.getElementById("halt_button").value = "stop camera";
       document.getElementById("halt_button").onclick = function() {};
-    }
-    else if(ajax_status.responseText == "timelapse") {
+    } else if(ajax_status.responseText == "timelapse") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
       document.getElementById("video_button").onclick = function() {};
@@ -149,8 +146,7 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("halt_button").disabled = true;
       document.getElementById("halt_button").value = "stop camera";
       document.getElementById("halt_button").onclick = function() {};
-    }
-    else if(ajax_status.responseText == "md_video") {
+    } else if(ajax_status.responseText == "md_video") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
       document.getElementById("video_button").onclick = function() {};
@@ -163,8 +159,7 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("halt_button").disabled = true;
       document.getElementById("halt_button").value = "stop camera";
       document.getElementById("halt_button").onclick = function() {};
-    }
-    else if(ajax_status.responseText == "image") {
+    } else if(ajax_status.responseText == "image") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
       document.getElementById("video_button").onclick = function() {};
@@ -177,8 +172,7 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("halt_button").disabled = true;
       document.getElementById("halt_button").value = "stop camera";
       document.getElementById("halt_button").onclick = function() {};
-    }
-    else if(ajax_status.responseText == "halted") {
+    } else if(ajax_status.responseText == "halted") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
       document.getElementById("video_button").onclick = function() {};
@@ -193,11 +187,10 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("halt_button").onclick = function() {send_cmd("ru 1");};
       halted = 1;
 	  updatePreview();
-    }
-    else if(ajax_status.responseText.substr(0,5) == "Error") alert("Error in RaspiMJPEG: " + ajax_status.responseText.substr(7) + "\nRestart RaspiMJPEG (./RPi_Cam_Web_Interface_Installer.sh start) or the whole RPi.");
-    
+    } else if(ajax_status.responseText.substr(0,5) == "Error") {
+	  alert("Error in RaspiMJPEG: " + ajax_status.responseText.substr(7) + "\nRestart RaspiMJPEG or the whole RPi.");
+	}
     reload_ajax(ajax_status.responseText);
-
   }
 }
 
