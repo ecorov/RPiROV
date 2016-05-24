@@ -31,7 +31,9 @@
 	  background-color: red;
 
 	}
-	
+	#slider {
+		height: 300px;
+	}
 
   </style>
   
