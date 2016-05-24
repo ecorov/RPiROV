@@ -6,7 +6,7 @@
   <script src="js/script.js"></script>
   <script src="js/pipan.js"></script>
   
-      
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.2/css/lightness/jquery-ui-1.10.2.custom.min.css">  
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
@@ -47,7 +47,7 @@
   
   <div id="boundary"><div id="ctrlrod"></div></div>
   <p id="debug"></p>
-
+  <div id="slider"></div>
     <script>
       $("#ctrlrod").draggable ({
         containment : "#boundary",
@@ -65,6 +65,18 @@
         }
       });
 	  
+	  
+	  $( "#slider" ).slider({
+		orientation: "vertical",
+		min:0,
+		max:100,
+		value: 50,
+		slide: function() {
+		console.log($( "#slider" ).slider( "value" ))
+		document.getElementById("debug").innerHTML = $( "#slider" ).slider( "value" );
+		},
+		
+	  });
     </script>
 	
 	
