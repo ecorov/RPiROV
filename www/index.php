@@ -11,6 +11,9 @@
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
 	<style>
+	body {
+		margin: 0px;
+	}
 	#boundary {
 	  position: absolute;
 	  width: 300px;
