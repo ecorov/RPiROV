@@ -18,6 +18,8 @@
 	  border-radius: 150px;
 	  background-color: rgb(192,192,192);
 	  opacity: 0.2;
+	  bottom: 10px;
+	  right:10px;
 	}
 
 	#ctrlrod {
@@ -33,25 +35,44 @@
 	}
 	#slider {
 		height: 300px;
+		bottom: -50px;
+		left:10px;		
 	}
 
+	#download {
+		top: 10px;
+		left:10px;	
+	}
+	
+	#camera{
+		bottom: 10px;
+		left: 200px;
+	}
+	
   </style>
+  
   
 </head>
 
 <body onload="setTimeout('init(0, 25, 1);', 100);">
   <img id="mjpeg_dest" src="/loading.jpg">
+  
+  <div id="camera">
   <input id="video_button" type="button" class="btn btn-primary">
   <input id="image_button" type="button" class="btn btn-primary">
   <input id="timelapse_button" type="button" class="btn btn-primary">
+  </div>
   <input id="halt_button" type="button" class="btn btn-danger">
-  <a href="preview.php" class="btn btn-default">Download Videos and Images</a>
+  <a id="download" href="preview.php" class="btn btn-default">Download</a>
   <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
   <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
   
   <div id="boundary"><div id="ctrlrod"></div></div>
   <p id="debug"></p>
   <div id="slider"></div>
+  
+  
+  
     <script>
       $("#ctrlrod").draggable ({
         containment : "#boundary",
@@ -78,7 +99,7 @@
 		slide: function() {
 		console.log($( "#slider" ).slider( "value" ))
 		document.getElementById("debug").innerHTML = $( "#slider" ).slider( "value" );
-		},
+		}
 		
 	  });
     </script>
