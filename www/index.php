@@ -65,6 +65,9 @@
 		right: 10px;
 		display: inline;
 	}
+	#halt_button, #reboot_button, #shutdown_button  {
+		display: none;
+	}
 	#debug{
 		position: absolute;
 		top: 10px;
@@ -88,13 +91,11 @@
   <a id="download" href="preview.php" class="btn btn-default">Download</a>
   
   <div id="system">
-      <a id="showsys" style="background-color:white; padding: 3px;">&lt;</a>
-	  
-	  <div id="syscmd" style="display:none;">
-		  <input id="halt_button" type="button" class="btn btn-danger">
-		  <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
-		  <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
-	  </div>
+		<a id="showsys" style="background-color:white; padding: 3px;">&lt;</a>
+		<input id="halt_button" type="button" class="btn btn-danger">
+		<input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
+		<input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
+
   </div>
   
   <div id="boundary"><div id="ctrlrod"></div></div>
@@ -127,11 +128,15 @@
 	  });
 	  
 	  $("#showsys").on('click', function() {
-		   if ($( "#syscmd" ).css( "display" ) == "none") {
-			   $( "#syscmd" ).css( "display", "block" ) 
+		   if ($( "#halt_button" ).css( "display" ) == "none") {
+			   $( "#halt_button" ).css( "display", "block" ) 
+			   $( "#reboot_button" ).css( "display", "block" ) 
+			   $( "#shutdown_button" ).css( "display", "block" ) 
 			   $("#showsys").text("> ")
-		   } else if ($( "#syscmd" ).css( "display" ) == "block") {
-			   $( "#syscmd" ).css( "display", "none" ) 
+		   } else if ($( "#halt_button" ).css( "display" ) == "block") {
+			   $( "#halt_button" ).css( "display", "none" ) 
+			   $( "#reboot_button" ).css( "display", "none" ) 
+			   $( "#shutdown_button" ).css( "display", "none" ) 
 			   $("#showsys").text("< ")
 		   }
 
