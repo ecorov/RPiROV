@@ -35,7 +35,7 @@
 	}
 	#slider {
 		height: 300px;
-		bottom: -50px;
+		bottom: 10px;
 		left:10px;		
 	}
 
