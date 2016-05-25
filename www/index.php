@@ -72,8 +72,8 @@
 		background-color: white;
 	}
 	.icon {
-		width:20px;
-		height:20px;
+		width:50px;
+		height:50px;
 	}
   </style>
   
@@ -89,10 +89,10 @@
   <input id="timelapse_button" type="button" class="btn btn-primary">
   </div>
   
-  <a id="download" href="preview.php" class="btn btn-default"><img class="icon" src="/img/download.png"></a>
+  <a id="download" href="preview.php"><img class="icon" src="/img/download.png"></a>
   
   <div id="system">
-      <a id="showsys" style="background-color:white; padding: 5px;"><img class="icon" src="/img/power.png"></a>
+      <a id="showsys"><img class="icon" src="/img/power.png"></a>
 	  
 	  <div id="syscmd" style="display:none;">
 		  <input id="halt_button" type="button" class="btn btn-danger">
