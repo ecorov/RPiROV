@@ -20,7 +20,7 @@
 	  height: 300px;
 	  border-radius: 150px;
 	  background-color: rgb(200,200,200);
-	  opacity: 0.3;
+	  opacity: 0.1;
 	  bottom: 10px;
 	  right:10px;
 	}
@@ -43,7 +43,7 @@
 		left:38px;
 	    border: 1px solid white;
 		background-color: rgb(0, 102, 255);
-		opacity: 0.3;
+		opacity: 0.2;
 	
 	}
 	.ui-widget-content, .ui-slider-handle.ui-state-default.ui-corner-all {
