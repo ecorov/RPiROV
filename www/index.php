@@ -20,7 +20,7 @@
 	  height: 300px;
 	  border-radius: 150px;
 	  background-color: rgb(200,200,200);
-	  opacity: 0.1;
+	  opacity: 0.05;
 	  bottom: 10px;
 	  right:10px;
 	}
@@ -38,9 +38,9 @@
 	}
 	#slider {
 		position: absolute;
-		height: 400px;
-		bottom: 10px;
-		left:10px;		
+		height: 75vh;
+		bottom: 20px;
+		left:30px;		
 	}
 
 	#download {
