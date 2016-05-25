@@ -71,6 +71,10 @@
 		left: 200px;
 		background-color: white;
 	}
+	.icon {
+		width:20px;
+		height:20px;
+	}
   </style>
   
   
