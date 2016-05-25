@@ -40,7 +40,7 @@
 		position: absolute;
 		height: 75vh;
 		bottom: 20px;
-		left:30px;		
+		left:25px;		
 	}
 
 	#download {
@@ -78,10 +78,10 @@
 		height:50px;
 	}
 	#reboot_button, #shutdown_button {
-		width: 70px;
+		width: 50px;
 		height: 20px;
 		border-radius: 5px;
-		margin: 10px;
+		margin: 20px;
 		border-style: none;
 		background-color: red;
 	}
