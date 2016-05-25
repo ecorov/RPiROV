@@ -40,7 +40,7 @@
 		position: absolute;
 		height: 75vh;
 		bottom: 20px;
-		left:25px;		
+		left:38px;		
 	}
 
 	#download {
