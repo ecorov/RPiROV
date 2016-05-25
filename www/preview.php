@@ -224,7 +224,7 @@
       }
       $fDate = @date('Y-m-d', $fModTime);
       $fTime = @date('H:i:s', $fModTime);
-      $fWidth = max($ts + 4, 100);
+      $fWidth = max($ts + 4, 140);
       echo "<fieldset class='fileicon' style='width:" . $fWidth . "px;'>";
       echo "<legend class='fileicon'>";
       echo "<button type='submit' name='delete1' value='$f' class='fileicondelete' style='background-image:url(img/delete.png);'></button>";
@@ -232,7 +232,7 @@
       echo "<img src='$fIcon' style='width:24px'/>";
       //echo "<input type='checkbox' name='check_list[]' $sel value='$f' style='float:right;'/>";
       echo "</legend>";
-      //if ($fsz > 0) echo "$fsz Kb $lapseCount $duration"; else echo 'Busy';
+      if ($fsz > 0) echo "$fsz Kb $lapseCount $duration"; else echo 'Busy';
       //echo "<br>$fDate<br>$fTime<br>";
       if ($fsz > 0) echo "<a title='$rFile' href='preview.php?preview=$f'>";
       echo "<img src='" . MEDIA_PATH . "/$f' style='width:" . $ts . "px'/>";
@@ -262,7 +262,7 @@
          $colour = 'Orange';
       else
          $colour = 'LightGreen';
-      echo '<div style="margin-top:15px;float:right;position:relative;width:calc(100vw - 150px);border:1px solid #ccc;">';
+      echo '<div style="margin-left:5px;position:relative;width:300px;border:1px solid #ccc;">';
          echo "<span>Used:$percentUsed%  Total:$totalSize(MB)</span>";
          echo "<div style='z-index:-1;position:absolute;top:0px;width:$percentUsed%;background-color:$colour;'>&nbsp;</div>";
       echo '</div>';
@@ -279,7 +279,7 @@
    </head>
    <body>
 
-      <a class="navbar-brand" href="index.php"><img style="width:50px;height:50px;margin-left: 10px;margin-right: 10px;" src="/img/home.png"></a> 
+    <a class="navbar-brand" href="index.php"><img style="width:50px;height:50px;margin-left: 10px;margin-right: 10px;" src="/img/home.png"></a>    
       <div class="container-fluid">
       <form action="preview.php" method="POST">
       <?php
