@@ -40,7 +40,20 @@
 		position: absolute;
 		height: 75vh;
 		bottom: 20px;
-		left:38px;		
+		left:38px;
+	    border: 1px solid white;
+		background-color: blue;
+		    width: 1.3em;
+	
+	}
+	.ui-widget-content, .ui-slider-handle.ui-state-default.ui-corner-all {
+		background: none;
+	}
+	#slider a{
+	    border: 1px solid white;
+		background-color: red;
+		height: 10px;
+		width: 20px;
 	}
 
 	#download {
