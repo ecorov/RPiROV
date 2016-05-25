@@ -92,7 +92,7 @@ ajax_status.onreadystatechange = function() {
 
     if(ajax_status.responseText == "ready") {
 		$('#video_button img').attr('src','/img/video-1.png');
-		$('#video_button img').onclick(function() {send_cmd("ca 1")});
+		$('#video_button img').click(function() {send_cmd("ca 1")});
  
 	  //document.getElementById("video_button").disabled = false;
       //document.getElementById("video_button").value = "record video start";
@@ -120,7 +120,7 @@ ajax_status.onreadystatechange = function() {
 	  updatePreview();
     } else if(ajax_status.responseText == "video") {
 		$('#video_button img').attr('src','/img/video-0.png');
-		$('#video_button img').onclick(function() {send_cmd("ca 0")});
+		$('#video_button img').click(function() {send_cmd("ca 0")});
 		
       //document.getElementById("video_button").disabled = false;
       //document.getElementById("video_button").value = "record video stop";
