@@ -82,7 +82,7 @@
 		height: 20px;
 		border-radius: 5px;
 		margin: 5px;
-		padding: 0px;
+		padding: 5px;
 		border-style: none;
 	}
   </style>
