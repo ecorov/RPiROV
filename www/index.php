@@ -55,7 +55,7 @@
 		height: 0px;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		width: 20px;
+		width: 30px;
 	}
 
 	#download {
