@@ -81,7 +81,7 @@
 		width: 50px;
 		height: 20px;
 		border-radius: 5px;
-		margin: 20px;
+		padding: 20px;
 		border-style: none;
 		background-color: red;
 	}
@@ -94,9 +94,11 @@
   <img id="mjpeg_dest" src="/img/loading.jpg">
   
   <div id="camera">
-  <input id="video_button" type="button" >
-  <input id="image_button" type="button" >
-  <input id="timelapse_button" type="button">
+	<a id="video_button"><img class="icon" src="/img/video-1.png"></a>
+	<a id="image_button"><img class="icon" src="/img/camera-1.png"></a>
+	<a id="timelapse_button"><img class="icon" src="/img/timelapse-1.png"></a>
+	
+
   </div>
   
   <a id="download" href="preview.php"><img class="icon" src="/img/download.png"></a>
