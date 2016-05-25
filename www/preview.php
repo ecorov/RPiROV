@@ -231,9 +231,9 @@
       echo "&nbsp;&nbsp;$fNumber&nbsp;";
       echo "<img src='$fIcon' style='width:24px'/>";
       //echo "<input type='checkbox' name='check_list[]' $sel value='$f' style='float:right;'/>";
-      echo "</legend><br>";
+      echo "</legend>";
       if ($fsz > 0) echo "$fsz Kb $lapseCount $duration"; else echo 'Busy';
-      //echo "<br>$fDate<br>$fTime<br>";
+      echo "<br>$fDate<br>$fTime<br>";
       if ($fsz > 0) echo "<a title='$rFile' href='preview.php?preview=$f'>";
       echo "<img src='" . MEDIA_PATH . "/$f' style='width:" . $ts . "px'/>";
       if ($fsz > 0) echo "</a>";
