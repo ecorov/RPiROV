@@ -262,7 +262,7 @@
          $colour = 'Orange';
       else
          $colour = 'LightGreen';
-      echo '<div style="margin-left:5px;position:relative;width:300px;border:1px solid #ccc;">';
+      echo '<a class="navbar-brand" href="index.php"><img style="width:50px;height:50px;margin-left: 10px;margin-right: 10px;" src="/img/home.png"></a> <div style="margin-left:5px;position:relative;width:95vw;border:1px solid #ccc;">';
          echo "<span>Used:$percentUsed%  Total:$totalSize(MB)</span>";
          echo "<div style='z-index:-1;position:absolute;top:0px;width:$percentUsed%;background-color:$colour;'>&nbsp;</div>";
       echo '</div>';
@@ -279,7 +279,7 @@
    </head>
    <body>
 
-    <a class="navbar-brand" href="index.php"><img style="width:50px;height:50px;margin-left: 10px;margin-right: 10px;" src="/img/home.png"></a>    
+       
       <div class="container-fluid">
       <form action="preview.php" method="POST">
       <?php
