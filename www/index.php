@@ -98,9 +98,11 @@
 		width: auto;
 		height: 20px;
 		border-radius: 5px;
-		padding: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-top: 20px;
 		border-style: none;
-		background-color: red;
+		background-color: rgb(255, 51, 0);
 	}
   </style>
   
