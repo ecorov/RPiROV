@@ -38,7 +38,7 @@ function updatePreview(cycle)
 {
 	if (mjpegmode && cycle !== undefined && cycle == true)
 	{
-		mjpeg_img.src = "/updating.jpg";
+		mjpeg_img.src = "/img/updating.jpg";
 		setTimeout("mjpeg_img.src = \"cam_pic_new.php?time=\" + new Date().getTime()  + \"&pDelay=\" + preview_delay;", 1000);
 		return;
 	}
@@ -51,7 +51,7 @@ function updatePreview(cycle)
 		}
 		else
 		{
-			mjpeg_img.src = "/unavailable.jpg";
+			mjpeg_img.src = "/img/unavailable.jpg";
 		}
 	}
 	previous_halted = halted;

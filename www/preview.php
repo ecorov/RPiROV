@@ -203,13 +203,13 @@
       $fNumber = getFileIndex($f);
       $lapseCount = "";
       switch ($fType) {
-         case 'v': $fIcon = 'video.png'; break;
+         case 'v': $fIcon = 'img/video.png'; break;
          case 't': 
-            $fIcon = 'timelapse.png';
+            $fIcon = 'img/timelapse.png';
             $lapseCount = '(' . count(findLapseFiles($f)). ')';
             break;
-         case 'i': $fIcon = 'image.png'; break;
-         default : $fIcon = 'image.png'; break;
+         case 'i': $fIcon = 'img/image.png'; break;
+         default : $fIcon = 'img/image.png'; break;
       }
       $duration ='';
       if (file_exists(MEDIA_PATH . "/$rFile")) {
@@ -227,7 +227,7 @@
       $fWidth = max($ts + 4, 140);
       echo "<fieldset class='fileicon' style='width:" . $fWidth . "px;'>";
       echo "<legend class='fileicon'>";
-      echo "<button type='submit' name='delete1' value='$f' class='fileicondelete' style='background-image:url(delete.png);'></button>";
+      echo "<button type='submit' name='delete1' value='$f' class='fileicondelete' style='background-image:url(img/delete.png);'></button>";
       echo "&nbsp;&nbsp;$fNumber&nbsp;";
       echo "<img src='$fIcon' style='width:24px'/>";
       echo "<input type='checkbox' name='check_list[]' $sel value='$f' style='float:right;'/>";

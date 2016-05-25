@@ -19,8 +19,8 @@
 	  width: 300px;
 	  height: 300px;
 	  border-radius: 150px;
-	  background-color: rgb(192,192,192);
-	  opacity: 0.2;
+	  background-color: rgb(200,200,200);
+	  opacity: 0.1;
 	  bottom: 10px;
 	  right:10px;
 	}
@@ -32,7 +32,7 @@
 	  left:120px;
 	  width: 60px;
 	  height: 60px;
-	  border-radius: 15px;
+	  border-radius: 30px;
 	  background-color: red;
 
 	}
@@ -77,7 +77,7 @@
 </head>
 
 <body onload="setTimeout('init(0, 25, 1);', 100);">
-  <img id="mjpeg_dest" src="/loading.jpg">
+  <img id="mjpeg_dest" src="/img/loading.jpg">
   
   <div id="camera">
   <input id="video_button" type="button" class="btn btn-primary">
@@ -85,10 +85,10 @@
   <input id="timelapse_button" type="button" class="btn btn-primary">
   </div>
   
-  <a id="download" href="preview.php" class="btn btn-default">Download</a>
+  <a id="download" href="preview.php" class="btn btn-default"><img class="icon" src="/img/download.png"></a>
   
   <div id="system">
-      <a id="showsys" style="background-color:white; padding: 5px;">&lt;</a>
+      <a id="showsys" style="background-color:white; padding: 5px;"><img class="icon" src="/img/power.png"></a>
 	  
 	  <div id="syscmd" style="display:none;">
 		  <input id="halt_button" type="button" class="btn btn-danger">
