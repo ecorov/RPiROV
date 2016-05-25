@@ -26,7 +26,7 @@
 	}
 
 	#ctrlrod {
-	z-index: 99;
+		z-index: 99;
 	  position: relative;
 	  top:120px;
 	  left:120px;
@@ -52,7 +52,7 @@
 	#camera{
 		position: absolute;
 		bottom: 10px;
-		left: 200px;
+		right: 400px;
 	}
 	img {
 		width: 100vw;
@@ -76,6 +76,8 @@
 	.icon {
 		width:50px;
 		height:50px;
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 	#reboot_button, #shutdown_button {
 		width: 50px;
