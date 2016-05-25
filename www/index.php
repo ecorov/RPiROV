@@ -59,6 +59,7 @@
 		height: 100vh;
 	}
 	#system{
+		float: right;
 		position: absolute;
 		top: 10px;
 		right: 10px;
@@ -94,7 +95,6 @@
       <a id="showsys"><img class="icon" src="/img/power.png"></a><br>
 	  
 	  <div id="syscmd" style="display:none;">
-		  <input id="halt_button" type="button" class="btn btn-danger"><br>
 		  <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger"><br>
 		  <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
 	  </div>
