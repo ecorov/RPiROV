@@ -52,8 +52,9 @@
 	#slider a{
 	    border: 1px solid white;
 		background-color: red;
-		height: 10px;
+		height: 0px;
 		padding-top: 10px;
+		padding-bottom: 10px;
 		width: 20px;
 	}
 
