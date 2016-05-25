@@ -52,9 +52,7 @@
 	#camera{
 		position: absolute;
 		bottom: 10px;
-		//right: 400px;
-		 left: 50%;
-		margin-right: -50%;
+		right: 50%;
 	}
 	img {
 		width: 100vw;
