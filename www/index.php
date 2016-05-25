@@ -52,7 +52,7 @@
 	#camera{
 		position: absolute;
 		bottom: 10px;
-		right: 50%;
+		right: calc(50vw - 109px); 
 	}
 	img {
 		width: 100vw;
