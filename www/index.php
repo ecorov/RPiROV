@@ -42,7 +42,7 @@
 		bottom: 20px;
 		left:38px;
 	    border: 1px solid white;
-		background-color: blue;
+		background-color: rgb(0, 102, 255);
 		
 	
 	}
@@ -51,7 +51,7 @@
 	}
 	#slider a{
 	    border: 1px solid white;
-		background-color: red;
+		background-color: rgb(255, 51, 0);
 		height: 0px;
 		padding-top: 10px;
 		padding-bottom: 10px;
