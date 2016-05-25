@@ -19,8 +19,8 @@
 	  width: 300px;
 	  height: 300px;
 	  border-radius: 150px;
-	  background-color: rgb(250,250,250);
-	  opacity: 0.2;
+	  background-color: rgb(200,200,200);
+	  opacity: 0.1;
 	  bottom: 10px;
 	  right:10px;
 	}
@@ -78,7 +78,7 @@
 		height:50px;
 	}
 	#reboot_button, #shutdown_button {
-		width: 66px;
+		width: 70px;
 		height: 20px;
 		border-radius: 5px;
 		margin: 10px;
@@ -94,9 +94,9 @@
   <img id="mjpeg_dest" src="/img/loading.jpg">
   
   <div id="camera">
-  <input id="video_button" type="button" class="btn btn-primary">
-  <input id="image_button" type="button" class="btn btn-primary">
-  <input id="timelapse_button" type="button" class="btn btn-primary">
+  <input id="video_button" type="button" >
+  <input id="image_button" type="button" >
+  <input id="timelapse_button" type="button">
   </div>
   
   <a id="download" href="preview.php"><img class="icon" src="/img/download.png"></a>
@@ -105,7 +105,7 @@
       <a id="showsys"><img class="icon" src="/img/power.png"></a><br>
 	  
 	  <div id="syscmd" style="display:none;">
-		  <input id="reboot_button" type="button" value="reboot" onclick="sys_reboot();" ><br><br>
+		  <input id="reboot_button" type="button" value="reboot" onclick="sys_reboot();" ><br><br><br>
 		  <input id="shutdown_button" type="button" value="shutdown" onclick="sys_shutdown();" >
 	  </div>
   </div>

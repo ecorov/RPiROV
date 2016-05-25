@@ -100,9 +100,6 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("timelapse_button").disabled = false;
       document.getElementById("timelapse_button").value = "timelapse start";
       document.getElementById("timelapse_button").onclick = function() {send_cmd("tl 1");};
-      document.getElementById("halt_button").disabled = false;
-      document.getElementById("halt_button").value = "stop camera";
-      document.getElementById("halt_button").onclick = function() {send_cmd("ru 0");};
       halted = 0;
 	  updatePreview();
     } else if(ajax_status.responseText == "md_ready") {
@@ -115,9 +112,6 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("timelapse_button").disabled = true;
       document.getElementById("timelapse_button").value = "timelapse start";
       document.getElementById("timelapse_button").onclick = function() {};
-      document.getElementById("halt_button").disabled = true;
-      document.getElementById("halt_button").value = "stop camera";
-      document.getElementById("halt_button").onclick = function() {};
       halted = 0;
 	  updatePreview();
     } else if(ajax_status.responseText == "video") {
@@ -130,9 +124,6 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("timelapse_button").disabled = true;
       document.getElementById("timelapse_button").value = "timelapse start";
       document.getElementById("timelapse_button").onclick = function() {};
-      document.getElementById("halt_button").disabled = true;
-      document.getElementById("halt_button").value = "stop camera";
-      document.getElementById("halt_button").onclick = function() {};
     } else if(ajax_status.responseText == "timelapse") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
@@ -143,9 +134,6 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("timelapse_button").disabled = false;
       document.getElementById("timelapse_button").value = "timelapse stop";
       document.getElementById("timelapse_button").onclick = function() {send_cmd("tl 0");};
-      document.getElementById("halt_button").disabled = true;
-      document.getElementById("halt_button").value = "stop camera";
-      document.getElementById("halt_button").onclick = function() {};
     } else if(ajax_status.responseText == "md_video") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
@@ -156,9 +144,6 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("timelapse_button").disabled = true;
       document.getElementById("timelapse_button").value = "timelapse start";
       document.getElementById("timelapse_button").onclick = function() {};
-      document.getElementById("halt_button").disabled = true;
-      document.getElementById("halt_button").value = "stop camera";
-      document.getElementById("halt_button").onclick = function() {};
     } else if(ajax_status.responseText == "image") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
@@ -169,9 +154,6 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("timelapse_button").disabled = true;
       document.getElementById("timelapse_button").value = "timelapse start";
       document.getElementById("timelapse_button").onclick = function() {};
-      document.getElementById("halt_button").disabled = true;
-      document.getElementById("halt_button").value = "stop camera";
-      document.getElementById("halt_button").onclick = function() {};
     } else if(ajax_status.responseText == "halted") {
       document.getElementById("video_button").disabled = true;
       document.getElementById("video_button").value = "record video start";
@@ -182,9 +164,6 @@ ajax_status.onreadystatechange = function() {
       document.getElementById("timelapse_button").disabled = true;
       document.getElementById("timelapse_button").value = "timelapse start";
       document.getElementById("timelapse_button").onclick = function() {};
-      document.getElementById("halt_button").disabled = false;
-      document.getElementById("halt_button").value = "start camera";
-      document.getElementById("halt_button").onclick = function() {send_cmd("ru 1");};
       halted = 1;
 	  updatePreview();
     } else if(ajax_status.responseText.substr(0,5) == "Error") {
