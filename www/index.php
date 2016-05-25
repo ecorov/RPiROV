@@ -44,7 +44,6 @@
 	}
 
 	#download {
-		background-color: white;
 		position: absolute;
 		top: 10px;
 		left:10px;	
