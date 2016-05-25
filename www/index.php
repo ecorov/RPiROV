@@ -78,11 +78,12 @@
 		height:50px;
 	}
 	#reboot_button, #shutdown_button {
-		width: 60px;
+		width: 70px;
 		height: 20px;
 		border-radius: 5px;
 		margin: 5px;
 		padding: 0px;
+		border-style: none;
 	}
   </style>
   
