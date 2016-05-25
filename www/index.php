@@ -19,8 +19,8 @@
 	  width: 300px;
 	  height: 300px;
 	  border-radius: 150px;
-	  background-color: rgb(200,200,200);
-	  opacity: 0.1;
+	  background-color: rgb(250,250,250);
+	  opacity: 0.2;
 	  bottom: 10px;
 	  right:10px;
 	}
@@ -132,10 +132,10 @@
 	  $("#showsys").on('click', function() {
 		   if ($( "#syscmd" ).css( "display" ) == "none") {
 			   $( "#syscmd" ).css( "display", "block" ) 
-			   $("#showsys").text("> ")
+
 		   } else if ($( "#syscmd" ).css( "display" ) == "block") {
 			   $( "#syscmd" ).css( "display", "none" ) 
-			   $("#showsys").text("< ")
+		
 		   }
 
 		});
