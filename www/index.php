@@ -79,9 +79,10 @@
 	}
 	#reboot_button, #shutdown_button {
 		width: 60px;
-		height: 30px;
-		border-radius: 10px;
-		margin: 10px;
+		height: 20px;
+		border-radius: 5px;
+		margin: 5px;
+		padding: 0px;
 	}
   </style>
   
@@ -103,8 +104,8 @@
       <a id="showsys"><img class="icon" src="/img/power.png"></a><br>
 	  
 	  <div id="syscmd" style="display:none;">
-		  <input id="reboot_button" type="button" value="reboot" onclick="sys_reboot();" class="btn btn-danger"><br><br>
-		  <input id="shutdown_button" type="button" value="shutdown" onclick="sys_shutdown();" class="btn btn-danger">
+		  <input id="reboot_button" type="button" value="reboot" onclick="sys_reboot();" ><br><br>
+		  <input id="shutdown_button" type="button" value="shutdown" onclick="sys_shutdown();" >
 	  </div>
   </div>
   
