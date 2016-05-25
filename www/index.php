@@ -53,6 +53,7 @@
 	    border: 1px solid white;
 		background-color: red;
 		height: 10px;
+		padding-top: 10px;
 		width: 20px;
 	}
 
