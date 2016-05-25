@@ -95,7 +95,7 @@
 		margin-right: 10px;
 	}
 	#reboot_button, #shutdown_button {
-		width: 50px;
+		width: auto;
 		height: 20px;
 		border-radius: 5px;
 		padding: 20px;
