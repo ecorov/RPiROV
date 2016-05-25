@@ -91,13 +91,13 @@ ajax_status.onreadystatechange = function() {
   if(ajax_status.readyState == 4 && ajax_status.status == 200) {
 
     if(ajax_status.responseText == "ready") {
-		$('#video_button img').attr('src','/img/video-1.png');
-		$('#video_button img').click(function() {send_cmd("ca 1")});
+	//	$('#video_button img').attr('src','/img/video-1.png');
+	//	$('#video_button img').click(function() {send_cmd("ca 1")});
  
-	  //document.getElementById("video_button").disabled = false;
-      //document.getElementById("video_button").value = "record video start";
+	  document.getElementById("video_button").disabled = false;
+      document.getElementById("video_button").value = "record video start";
 
-      //document.getElementById("video_button").onclick = function() {send_cmd("ca 1");};
+      document.getElementById("video_button").onclick = function() {send_cmd("ca 1");};
       document.getElementById("image_button").disabled = false;
       document.getElementById("image_button").value = "record image";
       document.getElementById("image_button").onclick = function() {send_cmd("im");};
@@ -119,12 +119,12 @@ ajax_status.onreadystatechange = function() {
       halted = 0;
 	  updatePreview();
     } else if(ajax_status.responseText == "video") {
-		$('#video_button img').attr('src','/img/video-0.png');
-		$('#video_button img').click(function() {send_cmd("ca 0")});
+		//$('#video_button img').attr('src','/img/video-0.png');
+		//$('#video_button img').click(function() {send_cmd("ca 0")});
 		
-      //document.getElementById("video_button").disabled = false;
-      //document.getElementById("video_button").value = "record video stop";
-      //document.getElementById("video_button").onclick = function() {send_cmd("ca 0");};
+      document.getElementById("video_button").disabled = false;
+      document.getElementById("video_button").value = "record video stop";
+      document.getElementById("video_button").onclick = function() {send_cmd("ca 0");};
       document.getElementById("image_button").disabled = false;
       document.getElementById("image_button").value = "record image";
       document.getElementById("image_button").onclick = function() {send_cmd("im");};

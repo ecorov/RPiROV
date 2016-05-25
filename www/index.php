@@ -94,11 +94,15 @@
   <img id="mjpeg_dest" src="/img/loading.jpg">
   
   <div id="camera">
+  <!--
 	<a id="video_button"><img class="icon" src="/img/video-1.png"></a>
 	<a id="image_button"><img class="icon" src="/img/camera-1.png"></a>
 	<a id="timelapse_button"><img class="icon" src="/img/timelapse-1.png"></a>
+-->
 	
-
+  <input id="video_button" type="button" >
+  <input id="image_button" type="button" >
+  <input id="timelapse_button" type="button">
   </div>
   
   <a id="download" href="preview.php"><img class="icon" src="/img/download.png"></a>
