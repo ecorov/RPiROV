@@ -43,7 +43,7 @@
 		left:38px;
 	    border: 1px solid white;
 		background-color: rgb(0, 102, 255);
-		
+		opacity: 0.1;
 	
 	}
 	.ui-widget-content, .ui-slider-handle.ui-state-default.ui-corner-all {
