@@ -59,11 +59,13 @@
 		height: 100vh;
 	}
 	#system{
-		float: right;
 		position: absolute;
 		top: 10px;
 		right: 10px;
 		display: inline;
+	}
+	#showsys, #syscmd input {
+		float: right;
 	}
 	#debug{
 		position: absolute;
