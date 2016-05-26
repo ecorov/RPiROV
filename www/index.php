@@ -143,9 +143,27 @@
 		revertDuration: 10,
 		drag: function() {
 			$("#debug").text($("#ctrlrod").css("left") + ":" + $("#ctrlrod").css("top"));
+			if (Number($("#ctrlrod").css("left").replace("px", "")) < 120) {
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: 'http://192.168.201.55:8080/doStuff.py?q=r',
+				});		
+			} else {
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: 'http://192.168.201.55:8080/doStuff.py?q=g',
+				});			
+			}
 		},
 		stop: function () {
 			$("#debug").text($("#ctrlrod").css("left") + ":" + $("#ctrlrod").css("top"));
+			$.ajax({
+				type: 'GET',
+				dataType: 'jsonp',
+				url: 'http://192.168.201.55:8080/doStuff.py?q=s',
+			});				
         }
       });
 	  
@@ -164,7 +182,7 @@
 				$.ajax({
 					type: 'GET',
 					dataType: 'jsonp',
-					url: 'http://192.168.201.55:8080/doStuff.py?q=w',
+					url: 'http://192.168.201.55:8080/doStuff.py?q=r',
 				});				
 			} else {
 				$.ajax({
