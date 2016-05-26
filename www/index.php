@@ -142,10 +142,10 @@
 		revert: "invalid",
 		revertDuration: 10,
 		drag: function() {
-			document.getElementById("debug").innerHTML = $( this ).css( "left" ) + ":" + $( this ).css( "top" );
+			$("#debug").text($("#ctrlrod").css("left") + ":" + $("#ctrlrod").css("top"));
 		},
 		stop: function () {
-			document.getElementById("debug").innerHTML = $( this ).css( "left" ) + ":" + $( this ).css( "top" );
+			$("#debug").text($("#ctrlrod").css("left") + ":" + $("#ctrlrod").css("top"));
         }
       });
 	  
@@ -155,21 +155,33 @@
 		min:0,
 		max:100,
 		value: 50,
-		slide: function() {
-		console.log($( "#slider" ).slider( "value" ))
-		document.getElementById("debug").innerHTML = $( "#slider" ).slider( "value" );
+		start: function() {
+			$("#debug").text($( "#slider" ).slider( "value" ));
+		}, 
+		stop: function() {
+			$("#debug").text($( "#slider" ).slider( "value" ));
+			if ($( "#slider" ).slider( "value" ) % 2 == 1) {
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: 'http://192.168.201.55:8080/doStuff.py?q=w',
+				});				
+			} else {
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: 'http://192.168.201.55:8080/doStuff.py?q=s',
+				});				
+			}
 		}
 	  });
 	  
 	  $("#showsys").on('click', function() {
 		   if ($( "#syscmd" ).css( "display" ) == "none") {
 			   $( "#syscmd" ).css( "display", "block" ) 
-
 		   } else if ($( "#syscmd" ).css( "display" ) == "block") {
 			   $( "#syscmd" ).css( "display", "none" ) 
-		
 		   }
-
 		});
 		
     </script>
