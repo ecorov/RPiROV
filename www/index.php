@@ -167,17 +167,21 @@
         }
       });
 	  
-	  
+	  var p0
 	  $( "#slider" ).slider({
 		orientation: "vertical",
 		min:0,
 		max:100,
 		value: 50,
 		start: function() {
-			$("#debug").text($( "#slider" ).slider( "value" ));
+			
+			p0 = $( "#slider" ).slider( "value" )
+			console.log(p0)
 		}, 
 		stop: function() {
+			console.log($( "#slider" ).slider( "value" )-p0)
 			$("#debug").text($( "#slider" ).slider( "value" ));
+			
 			if ($( "#slider" ).slider( "value" ) % 2 == 1) {
 				$.ajax({
 					type: 'GET',
@@ -191,6 +195,7 @@
 					url: 'http://192.168.201.55:8080/doStuff.py?q=s',
 				});				
 			}
+			
 		}
 	  });
 	  
