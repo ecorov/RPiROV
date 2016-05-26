@@ -147,7 +147,7 @@
 				$.ajax({
 					type: 'GET',
 					dataType: 'jsonp',
-					url: 'http://192.168.201.55:8080/doStuff.py?q=r',
+					url: 'http://192.168.201.55:8080/doStuff.py?q=w',
 				});		
 			} else {
 				$.ajax({
@@ -182,7 +182,7 @@
 				$.ajax({
 					type: 'GET',
 					dataType: 'jsonp',
-					url: 'http://192.168.201.55:8080/doStuff.py?q=r',
+					url: 'http://192.168.201.55:8080/doStuff.py?q=w',
 				});				
 			} else {
 				$.ajax({
