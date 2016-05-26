@@ -14,5 +14,11 @@ sudo cp etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf
 
  
  
- 
+ $.ajax({
+    url: 'http://192.168.201.55:8080/doStuff.py?q=w',
+    type: 'GET',
+    crossDomain: true,
+    dataType: 'jsonp'
+});
+
  $.get( "192.168.201.55:8080/doStuff.py?q=w")
