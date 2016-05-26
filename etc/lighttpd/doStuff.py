@@ -7,7 +7,7 @@ import sys, urlparse
 
 G.setmode(G.BCM)
 G.setup(17, G.OUT)
-
+G.setup(23, G.OUT)
 
 def app(environ, start_response):
 	start_response("200 OK", [("Content-Type", "text/html")])
@@ -15,9 +15,14 @@ def app(environ, start_response):
 	yield ('&nbsp;') 
 	if "q" in i:
 		if i["q"][0] == "w": 
-			G.output(17, True)  
+			G.output(17, True)
+			G.output(23, False)			
+		elif i["q"][0] == "g": 
+			G.output(23, True)	
+			G.output(17, False)			
 		elif i["q"][0] == "s":
-			G.output(17, False)  
+			G.output(17, False)
+			G.output(23, False)			
 
 
 WSGIServer(app).run()
