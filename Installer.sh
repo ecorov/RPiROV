@@ -116,6 +116,13 @@ case "$1" in
           sudo ln -s /etc/raspimjpeg /var/www/raspimjpeg
         fi
 
+		sudo mkdir /var/www/html/
+		sudo cp etc/lighttpd/doStuff.py /var/www/html/
+		sudo cp etc/lighttpd/index.html /var/www/html/
+		sudo chmod 755 /var/www/html/doStuff.py
+		sudo cp /usr/bin/python2.7 /usr/bin/pythonRoot
+		sudo chmod u+s /usr/bin/pythonRoot
+		sudo cp etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf
 
         cat etc/rc_local_run/rc.local.1 > etc/rc_local_run/rc.local
         sudo cp -r /etc/rc.local /etc/rc.local.bak
@@ -160,6 +167,8 @@ case "$1" in
         sudo chmod 777 /dev/shm/mjpeg
         sleep 1;sudo su -c 'raspimjpeg > /dev/null &' www-data
         sleep 1;sudo su -c 'php /var/www/schedule.php > /dev/null &' www-data
+		killall -9 python lighttpd
+		sudo /etc/init.d/lighttpd start
         echo "Started"
         ;;
 
