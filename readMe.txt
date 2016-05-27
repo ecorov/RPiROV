@@ -5,4 +5,4 @@ sudo raspi-config
 sudo apt-get update
 
 
-
+3. 
