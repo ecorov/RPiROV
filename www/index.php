@@ -3,13 +3,14 @@
 
 <head>
   <title>RPi ROV</title>
-  <script src="js/script.js"></script>
-  <script src="js/pipan.js"></script>
+
   
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css"> 
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	<script src="js/script.js"></script>
+    <script src="js/pipan.js"></script>
 	<!--<script src="http://friedcell.si/js/jQuery.windowName/jQuery.windowName.plugin.js"></script> -->
 	<style>
 	body {
