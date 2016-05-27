@@ -51,7 +51,6 @@ sudo chown www-data:www-data /dev/shm/mjpeg
 sudo chmod 777 /dev/shm/mjpeg
 sleep 1;sudo su -c 'raspimjpeg > /dev/null &' www-data
 sleep 1;sudo su -c 'php /var/www/schedule.php > /dev/null &' www-data
-killall -9 python lighttpd
 sudo /etc/init.d/lighttpd start
 echo "Started"
 
