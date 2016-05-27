@@ -11,7 +11,10 @@
 	<script src="js/jquery.ui.touch-punch.min.js"></script>
 	<script src="js/script.js"></script>
     <script src="js/pipan.js"></script>
+<<<<<<< HEAD
 	<!--<script src="http://friedcell.si/js/jQuery.windowName/jQuery.windowName.plugin.js"></script> -->
+=======
+>>>>>>> cb6b7f30ab5176fec4ba1e99dee8550043cb0351
 	<style>
 	body {
 		margin: 0px;
