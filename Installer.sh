@@ -40,9 +40,6 @@ case "$1" in
 
   remove)
         sudo killall raspimjpeg
-        #sudo apt-get remove -y apache2 php5 libapache2-mod-php5 gpac motion zip python-flup lighttpd
-        #sudo apt-get autoremove -y
-
         sudo rm -r /var/www/*
         sudo rm /etc/sudoers.d/RPiROV
         sudo rm /usr/bin/raspimjpeg
@@ -68,7 +65,7 @@ case "$1" in
   install)
         sudo killall raspimjpeg
         git pull origin master
-        # sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion zip python-flup lighttpd
+        sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion zip python-flup lighttpd
 
         sudo mkdir -p /var/www/media
         sudo cp -r www/* /var/www/
@@ -128,12 +125,6 @@ case "$1" in
         sudo cp -r /etc/rc.local /etc/rc.local.bak
         sudo cp -r etc/rc_local_run/rc.local /etc/
         sudo chmod 755 /etc/rc.local
-
-        #cat etc/motion/motion.conf.1 > etc/motion/motion.conf
-        #sudo cp -r etc/motion/motion.conf /etc/motion/
-        #sudo chmod 640 /etc/motion/motion.conf
-        #sudo chgrp www-data /etc/motion/motion.conf
-        #sudo chmod +rrr /etc/motion/motion.conf 
 		
         sudo usermod -a -G video www-data
         if [ -e /var/www/uconfig ]; then
