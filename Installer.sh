@@ -31,17 +31,15 @@ case "$1" in
         sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac 
 
         sudo cp -r www/* /var/www/
-
         sudo chown -R www-data:www-data /var/www
         
 
         sudo mknod /var/www/FIFO p
         sudo chmod 666 /var/www/FIFO
-        
         sudo mknod /var/www/FIFO1 p
         sudo chmod 666 /var/www/FIFO1
-        sudo chmod 755 /var/www/raspizip.sh
 
+        sudo chmod 755 /var/www/raspizip.sh
         sudo ln -sf /run/shm/mjpeg/cam.jpg /var/www/cam.jpg
 
 
@@ -51,6 +49,7 @@ case "$1" in
         sudo chmod 644 /etc/apache2/sites-available/default
         sudo cp etc/apache2/conf.d/other-vhosts-access-log /etc/apache2/conf.d/other-vhosts-access-log
         sudo chmod 644 /etc/apache2/conf.d/other-vhosts-access-log
+
 
         sudo cp etc/sudoers.d/RPiROV /etc/sudoers.d/
         sudo chmod 440 /etc/sudoers.d/RPiROV
@@ -77,9 +76,7 @@ case "$1" in
         sudo chmod 755 /etc/rc.local
 		
         sudo usermod -a -G video www-data
-        if [ -e /var/www/uconfig ]; then
-          sudo chown www-data:www-data /var/www/uconfig
-        fi
+
 
         sudo apt-get install -y python-flup lighttpd
         sudo mkdir /var/www/html/
