@@ -14,7 +14,6 @@ if [ ! -e /var/www/FIFO1 ]; then
   sudo mknod /var/www/FIFO1 p
 fi
 sudo chmod 666 /var/www/FIFO1
-sudo chmod 755 /var/www/raspizip.sh
 
 if [ ! -e /var/www/cam.jpg ]; then
   sudo ln -sf /run/shm/mjpeg/cam.jpg /var/www/cam.jpg
