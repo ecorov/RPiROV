@@ -11,14 +11,14 @@ s = PWM.Servo()
 
 ## Define pins for devices
 ## Step motor
-pinStp = 20
-pinDir = 21
+pinStp = 21
+pinDir = 20
 pinSlp = 26
 
 G.setup(pinStp, G.OUT)
 G.setup(pinDir, G.OUT)
 G.setup(pinSlp, G.OUT)
-G.output(pinSlp, True)
+G.output(pinSlp, False)
 
 ## LED light
 pinLED = 19
@@ -34,7 +34,7 @@ time.sleep(0.5)
 
 ## Function for step motor
 def stepMotor(step):
-	G.output(pinSlp, False)
+	G.output(pinSlp, True)
 	time.sleep(0.1)
 	# Direction
 	if step < 0:
@@ -42,12 +42,10 @@ def stepMotor(step):
 	else
 		G.output(pinDir, True)
 	# step
-	for i in range(1, step * 1.8 *100):
+	for i in range(1, int(abs(step) * 1.8 *100)):
 		G.output(pinStp, True)
 		G.output(pinStp, False)
-		time.sleep(0.01)
-
-	G.output(pinSlp, True)
+		time.sleep(0.0001)
 	return
 	
 
@@ -58,6 +56,7 @@ def app(environ, start_response):
 	#  url = "stp=-300&stp=50&lft=1050&rgt=1100&led=off"
 	if "stp" in i:
 		stepMotor(int(i["stp"][0]))
+		G.output(pinSlp, False)
 	if "lft" in i:
 		s.set_servo(pinLft, int(i["lft"][0]))
 	if "rgt" in i:
