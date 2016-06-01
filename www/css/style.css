@@ -40,9 +40,11 @@ body {
 	border: 1px solid white;
 	background-color: rgb(255, 51, 0);
 	height: 0px;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	width: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 15px;
+	
 }
 
 #download {
