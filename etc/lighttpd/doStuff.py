@@ -43,7 +43,7 @@ def stepMotor(step):
 	else
 		G.output(pinDir, True)
 	# step
-	for i in range(1, step * 100):
+	for i in range(1, step * 1.8 *100):
 		G.output(pinStp, True)
 		G.output(pinStp, False)
 		time.sleep(0.01)
