@@ -39,7 +39,7 @@ def stepMotor(step):
     # Direction
     if step < 0:
         G.output(pinDir, False)
-    else
+    else:
         G.output(pinDir, True)
     # step
     for i in range(1, int(abs(step) * 1.8 *100)):
@@ -72,7 +72,7 @@ def app(environ, start_response):
     if "led" in i:
         if i["led"][0] == "on":
             G.setup(pinLED, G.OUT)
-        else i["led"][0] == "on":
+        else:
             G.cleanup(pinLED)
 
 WSGIServer(app).run()
