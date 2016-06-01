@@ -71,3 +71,5 @@ def app(environ, start_response):
 
 WSGIServer(app).run()
 
+G.cleanup()
+
