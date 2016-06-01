@@ -60,9 +60,9 @@ body {
 }
 
 #led_button{
-	position: absolute;
-	top: 10px;
-	right: calc(50vw - 25px); 
+	//position: absolute;
+	//top: 10px;
+	//right: calc(50vw - 25px); 
 }
 
 img {
