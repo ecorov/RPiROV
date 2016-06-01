@@ -48,8 +48,8 @@ var p0
 $( "#slider" ).slider({
 	orientation: "vertical",
 	min:0,
-	max:100,
-	value: 50,
+	max:380,
+	value: 200,
 	start: function() {
 		p0 = $( "#slider" ).slider( "value" )
 		console.log(p0)
