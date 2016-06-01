@@ -17,7 +17,6 @@ pinSlp = 26
 
 G.setup(pinStp, G.OUT)
 G.setup(pinDir, G.OUT)
-
 G.setup(pinSlp, G.OUT)
 G.output(pinSlp, True)
 
