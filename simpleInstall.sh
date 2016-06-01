@@ -41,7 +41,7 @@ sudo chmod 644 /etc/raspimjpeg
 if [ ! -e /var/www/raspimjpeg ]; then
   sudo ln -s /etc/raspimjpeg /var/www/raspimjpeg
 fi
-
+sudo cp etc/lighttpd/doStuff.py /var/www/html
 sudo chmod 755 /var/www/html/doStuff.py
 if [ ! -e /usr/bin/pythonRoot ]; then
   sudo cp /usr/bin/python2.7 /usr/bin/pythonRoot
