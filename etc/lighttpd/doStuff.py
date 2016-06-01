@@ -25,7 +25,7 @@ pinLED = 19
 
 ## Brushless motors
 pinLft = 27
-pinRgt = 22
+pinRgt = 23
 
 s.set_servo(pinLft, 1000)
 time.sleep(1.0)
