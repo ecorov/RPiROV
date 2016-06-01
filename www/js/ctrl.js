@@ -56,7 +56,7 @@ $( "#slider" ).slider({
 	}, 
 	stop: function() {
 		var step = $( "#slider" ).slider( "value" )-p0
-		$("#debug").text($( "#slider" ).slider( "value" ) + "  : moved " + step);
+		$("#debug").text('Current:' + $( "#slider" ).slider( "value" ) + "; moved: " + step);
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
