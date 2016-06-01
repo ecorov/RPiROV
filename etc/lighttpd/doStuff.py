@@ -49,6 +49,14 @@ def stepMotor(step):
 	return
 	
 
+G.setup(pinLED, G.OUT)
+time.sleep(1)
+G.cleanup(pinLED)
+G.setup(pinLED, G.OUT)
+time.sleep(1)
+G.cleanup(pinLED)
+
+
 def app(environ, start_response):
 	start_response("200 OK", [("Content-Type", "text/html")])
 	i = urlparse.parse_qs(environ["QUERY_STRING"])
