@@ -34,19 +34,19 @@ time.sleep(0.5)
 
 ## Function for step motor
 def stepMotor(step):
-	G.output(pinSlp, True)
-	time.sleep(0.1)
-	# Direction
-	if step < 0:
-		G.output(pinDir, False)
-	else
-		G.output(pinDir, True)
-	# step
-	for i in range(1, int(abs(step) * 1.8 *100)):
-		G.output(pinStp, True)
-		G.output(pinStp, False)
-		time.sleep(0.0001)
-	return
+    G.output(pinSlp, True)
+    time.sleep(0.1)
+    # Direction
+    if step < 0:
+        G.output(pinDir, False)
+    else
+        G.output(pinDir, True)
+    # step
+    for i in range(1, int(abs(step) * 1.8 *100)):
+        G.output(pinStp, True)
+        G.output(pinStp, False)
+        time.sleep(0.0001)
+    return
 	
 
 G.setup(pinLED, G.OUT)
@@ -58,22 +58,22 @@ G.cleanup(pinLED)
 
 
 def app(environ, start_response):
-	start_response("200 OK", [("Content-Type", "text/html")])
-	i = urlparse.parse_qs(environ["QUERY_STRING"])
-	yield ('&nbsp;') 
-	#  url = "stp=-300&stp=50&lft=1050&rgt=1100&led=off"
-	if "stp" in i:
-		stepMotor(int(i["stp"][0]))
-		G.output(pinSlp, False)
-	if "lft" in i:
-		s.set_servo(pinLft, int(i["lft"][0]))
-	if "rgt" in i:
-		s.set_servo(pinRgt, int(i["rgt"][0]))
-	if "led" in i:
-		if i["led"][0] == "on":
-			G.setup(pinLED, G.OUT)
-		else i["led"][0] == "on":
-			G.cleanup(pinLED)
+    start_response("200 OK", [("Content-Type", "text/html")])
+    i = urlparse.parse_qs(environ["QUERY_STRING"])
+    yield ('&nbsp;') 
+    #  url = "stp=-300&stp=50&lft=1050&rgt=1100&led=off"
+    if "stp" in i:
+        stepMotor(int(i["stp"][0]))
+        G.output(pinSlp, False)
+    if "lft" in i:
+        s.set_servo(pinLft, int(i["lft"][0]))
+    if "rgt" in i:
+        s.set_servo(pinRgt, int(i["rgt"][0]))
+    if "led" in i:
+        if i["led"][0] == "on":
+            G.setup(pinLED, G.OUT)
+        else i["led"][0] == "on":
+            G.cleanup(pinLED)
 
 WSGIServer(app).run()
 
