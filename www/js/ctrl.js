@@ -1,4 +1,4 @@
-var domain = 'http://192.168.10.102:8080/'
+var domain = 'http://' + document.domain + ':8080/'
 
 
 $("#ctrlrod").draggable ({
