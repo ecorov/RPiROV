@@ -1,6 +1,7 @@
 var domain = 'http://' + document.domain + ':8080/'
 
-
+var pwmLft0 = 1000
+var pwmRgt0 = 1000
 $("#ctrlrod").draggable ({
 	containment : "#boundary",
 	revert: "invalid",
@@ -11,7 +12,7 @@ $("#ctrlrod").draggable ({
 		if (y < 0) {
 			var v0 = parseInt(Math.abs(y))
 			var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
-			var scale = 3
+			var scale = 2
 			if (x < 0) {
 				var pwmLft = v1*scale + 1000
 				var pwmRgt = v0*scale + 1000
@@ -19,14 +20,31 @@ $("#ctrlrod").draggable ({
 				var pwmLft = v0*scale + 1000
 				var pwmRgt = v1*scale + 1000
 			}
-			$("#debug").text('Left: '+ pwmLft + "   &   Right: " + pwmRgt);
-			$.ajax({
-				type: 'GET',
-				dataType: 'jsonp',
-				url: domain + 'doStuff.py?lft='+pwmLft+ '&rgt=' + pwmRgt
-			});	
+			console.log(pwmLft)
+			console.log(pwmRgt)
+			var pwmLft1 = Math.floor(pwmLft/10) * 10
+			var pwmRgt1 = Math.floor(pwmRgt/10) * 10
+			
+			if (pwmLft1 != pwmLft0) {
+				pwmLft0 = pwmLft1
+				$("#debug").text('Left: '+ pwmLft1);
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: domain + 'doStuff.py?lft='+pwmLft1
+				});	
+			}
+			if (pwmRgt1 != pwmRgt0) {
+				pwmRgt0 != pwmRgt1
+				$("#debug").text('Right: ' + pwmRgt1);
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: domain + 'doStuff.py?rgt=' + pwmRgt1
+				});	
+			}
 		} else {
-			$("#debug").text('Left: '+ 1000 + "   &   Right: " + 1000);
+			$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
@@ -35,7 +53,7 @@ $("#ctrlrod").draggable ({
 		}
 	},
 	stop: function () {
-		$("#debug").text('Left: '+ 1000 + "   &   Right: " + 1000);
+		$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
