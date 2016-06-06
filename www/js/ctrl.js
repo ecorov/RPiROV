@@ -3,9 +3,11 @@ function pwd () {
 	if (md5($( "#ctrlpwd" )[0].value) == "8caf447c1cd0db7adbec6c890eb82c70") {
 		$( "#CtrlPannel" ).css( "display", "block" ) 
 		$( "#CtrlPwd" ).css( "display", "none" ) 
+		$( "#mjpeg_dest" ).css( "display", "block" ) 
 	} else {
 		$( "#CtrlPwd" ).css( "display", "none" ) 
 		alert("You can't control this ROV, but you can receive its video stream");
+		$( "#mjpeg_dest" ).css( "display", "block" ) 
 	}
 }
 

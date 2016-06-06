@@ -14,13 +14,15 @@
 </head>
 
 <body onload="setTimeout('init(0, 25, 1);', 100);">
-	<img id="mjpeg_dest" src="img/loading.jpg">
+	
 	
 	<div id="CtrlPwd"  style="display:block;">
 		Type password to control this ROV: <br>
 		<input type="text" id="ctrlpwd">
 		<input type="submit" onclick="pwd()" value="Submit">
 	</div>
+	
+	<img id="mjpeg_dest" src="img/loading.jpg"  style="display:none;">
 	
 	<div id="CtrlPannel"  style="display:none;">
 		<div id="camera">
