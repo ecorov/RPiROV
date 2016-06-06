@@ -1,5 +1,5 @@
 body {
-	margin: 0px;
+  margin: 0px;
 }
 #boundary {
   position: absolute;
@@ -13,7 +13,7 @@ body {
 }
 
 #ctrlrod {
-	z-index: 99;
+  z-index: 99;
   position: relative;
   top:120px;
   left:120px;
@@ -99,4 +99,10 @@ img {
 	margin-top: 20px;
 	border-style: none;
 	background-color: rgb(255, 51, 0);
+}
+
+#CtrlPwd {
+	position: absolute;
+	bottom: calc(50vh - 20px);
+	right: calc(50vw - 100px); 
 }

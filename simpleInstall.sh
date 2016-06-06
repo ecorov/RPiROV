@@ -3,7 +3,6 @@ sudo easy_install -U RPIO
 
 sudo cp -r www/* /var/www/
 sudo mkdir -p /var/www/media
-sudo mkdir -p /var/www/html
 sudo chown -R www-data:www-data /var/www
 
 
