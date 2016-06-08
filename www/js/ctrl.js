@@ -159,6 +159,13 @@ $("#showsys").on('click', function() {
     var btn_0 = controller.buttons[6];
     var btn_1 = controller.buttons[7];
 
+    if (btn_0.pressed) {
+    	$("#debug").text('sink: 1')
+    }
+    if (btn_1.pressed) {
+    	$("#debug").text('float: 1')
+    }
+    
     var x = controller.axes[0].toFixed(2);
     var y = controller.axes[1].toFixed(2);
 
@@ -247,6 +254,25 @@ $('#debug').bind("DOMSubtreeModified",function(){
 		url: domain + 'doStuff.py?rgt='+pwmRgt1
 	});
   	}
+  	
+  	if (res[0].match(/sink/g) != null) {
+		$.ajax({
+			type: 'GET',
+			dataType: 'jsonp',
+			url: domain + 'doStuff.py?stp=' + 1
+		});
+		$("#debug").text('')
+  	}
+  	
+  	if (res[0].match(/float/g) != null) {
+		$.ajax({
+			type: 'GET',
+			dataType: 'jsonp',
+			url: domain + 'doStuff.py?stp=' + -1
+		});
+		$("#debug").text('')
+  	}
+  	
   }
 
 
