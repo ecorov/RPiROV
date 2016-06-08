@@ -181,28 +181,13 @@ $("#showsys").on('click', function() {
       if (pwmLft1 != pwmLft0) {
         pwmLft0 = pwmLft1
         $("#debug").text('Left: '+ pwmLft1);
-        $.ajax({
-          type: 'GET',
-          dataType: 'jsonp',
-          url: domain + 'doStuff.py?lft='+pwmLft1
-        });	
       }
       if (pwmRgt1 != pwmRgt0) {
         pwmRgt0 != pwmRgt1
         $("#debug").text('Right: ' + pwmRgt1);
-        $.ajax({
-          type: 'GET',
-          dataType: 'jsonp',
-          url: domain + 'doStuff.py?rgt=' + pwmRgt1
-        });	
       }
     } else {
       $("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
-      $.ajax({
-        type: 'GET',
-        dataType: 'jsonp',
-        url: domain + 'doStuff.py?lft=1000&rgt=1000'
-      });	
     }
     rAF(updateStatus);
   }
@@ -227,3 +212,44 @@ $("#showsys").on('click', function() {
   if (controllers.length == 0) {
     document.getElementById("btn").innerHTML = "No gamepad connected"
   } 
+  
+  
+  
+  
+  
+$('#debug').bind("DOMSubtreeModified",function(){
+  var innText = $("#debug").text();
+  var res = innText.split("&");
+  if (res.length == 2) {
+	  $.ajax({
+		type: 'GET',
+		dataType: 'jsonp',
+		url: domain + 'doStuff.py?lft=1000&rgt=1000'
+	});	
+  } 
+  
+  if (res.length == 1) {
+  	if (res[0].match(/Left/g) != null) {
+  	  var strLft1 = res[0].split(": ")	
+  	  var pwmLft1 = strLft1[1]
+    		$.ajax({
+		type: 'GET',
+		dataType: 'jsonp',
+		url: domain + 'doStuff.py?lft='+pwmLft1
+	});
+  	}
+  	if (res[0].match(/Right/g) != null) {
+  	  var strRgt1 = res[0].split(": ")	
+  	  var pwmRgt1 = strRgt1[1]
+    		$.ajax({
+		type: 'GET',
+		dataType: 'jsonp',
+		url: domain + 'doStuff.py?rgt='+pwmRgt1
+	});
+  	}
+  }
+
+
+
+  console.log('changed');
+});
