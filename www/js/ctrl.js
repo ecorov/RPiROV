@@ -209,9 +209,9 @@ $("#showsys").on('click', function() {
     window.addEventListener("gamepadconnected", connecthandler);
   }
   
-  if (controllers.length == 0) {
-    document.getElementById("btn").innerHTML = "No gamepad connected"
-  } 
+  //if (controllers.length == 0) {
+  //  document.getElementById("btn").innerHTML = "No gamepad connected"
+  //} 
   
   
   
