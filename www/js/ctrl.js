@@ -163,9 +163,9 @@ $("#showsys").on('click', function() {
     var y = controller.axes[1].toFixed(2);
 
     if (y < 0) {
-      var v0 = parseInt(Math.abs(y))
-      var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
-      var scale = 500
+      var v0 = Math.abs(y)
+      var v1 = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
+      var scale = 300
       if (x < 0) {
         var pwmLft = v1*scale + 1000
         var pwmRgt = v0*scale + 1000
@@ -204,10 +204,6 @@ $("#showsys").on('click', function() {
         url: domain + 'doStuff.py?lft=1000&rgt=1000'
       });	
     }
-        
-
-       
-        
     rAF(updateStatus);
   }
 
