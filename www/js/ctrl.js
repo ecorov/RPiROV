@@ -135,7 +135,7 @@ $("#showsys").on('click', function() {
 
 
 
-
+/*
 
 
 
@@ -279,3 +279,4 @@ $('#debug').bind("DOMSubtreeModified",function(){
 
   console.log('changed');
 });
+*/
