@@ -72,7 +72,7 @@ def app(environ, start_response):
         G.output(pinSlp, False)
     if "lft" in i:
     	spd = int(i["lft"][0])
-    	if spd < 0:
+    	if spd < -1020:
     	    G.setup(pinDlyLft1, G.OUT)
     	    G.setup(pinDlyLft2, G.OUT)
     	    s.set_servo(pinLft, abs(spd))
@@ -82,7 +82,7 @@ def app(environ, start_response):
     	    s.set_servo(pinLft, abs(spd))
     if "rgt" in i:
     	spd = int(i["rgt"][0])
-    	if spd < 0:
+    	if spd < -1020:
     	    G.setup(pinDlyRgt1, G.OUT)
     	    G.setup(pinDlyRgt2, G.OUT)
     	    s.set_servo(pinRgt, abs(spd))
