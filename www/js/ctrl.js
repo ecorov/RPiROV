@@ -29,48 +29,45 @@ $("#ctrlrod").draggable ({
 	drag: function() {	
 		var x = Number($("#ctrlrod").css("left").replace("px", "")) - 120
 		var y = Number($("#ctrlrod").css("top" ).replace("px", "")) - 120
-		if (y < 0) {
-			var v0 = parseInt(Math.abs(y))
-			var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
-			var scale = 2
-			if (x < 0) {
-				var pwmLft = v1*scale + 1000
-				var pwmRgt = v0*scale + 1000
-			} else {
-				var pwmLft = v0*scale + 1000
-				var pwmRgt = v1*scale + 1000
-			}
-			console.log(pwmLft)
-			console.log(pwmRgt)
-			var pwmLft1 = Math.floor(pwmLft/10) * 10
-			var pwmRgt1 = Math.floor(pwmRgt/10) * 10
-			
-			if (pwmLft1 != pwmLft0) {
-				pwmLft0 = pwmLft1
-				$("#debug").text('Left: '+ pwmLft1);
-				$.ajax({
-					type: 'GET',
-					dataType: 'jsonp',
-					url: domain + 'doStuff.py?lft='+pwmLft1
-				});	
-			}
-			if (pwmRgt1 != pwmRgt0) {
-				pwmRgt0 != pwmRgt1
-				$("#debug").text('Right: ' + pwmRgt1);
-				$.ajax({
-					type: 'GET',
-					dataType: 'jsonp',
-					url: domain + 'doStuff.py?rgt=' + pwmRgt1
-				});	
-			}
+	
+		var v0 = parseInt(Math.abs(y))
+		var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
+		var scale = 2
+		if (x < 0) {
+			var pwmLft = v1*scale + 1000
+			var pwmRgt = v0*scale + 1000
 		} else {
-			$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
+			var pwmLft = v0*scale + 1000
+			var pwmRgt = v1*scale + 1000
+		}
+		var pwmLft1 = Math.floor(pwmLft/10) * 10
+		var pwmRgt1 = Math.floor(pwmRgt/10) * 10
+		
+		if (y > 0) {
+			var pwmLft1 = -pwmLft1
+			var pwmRgt1 = -pwmRgt1
+		}
+		if (pwmLft1 != pwmLft0) {
+			pwmLft0 = pwmLft1
+			$("#debug").text('Left: '+ pwmLft1);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
-				url: domain + 'doStuff.py?lft=1000&rgt=1000'
-			});	
+				url: domain + 'doStuff.py?lft='+pwmLft1
+			});
+			console.log("send command")
 		}
+		if (pwmRgt1 != pwmRgt0) {
+			pwmRgt0 != pwmRgt1
+			$("#debug").text('Right: ' + pwmRgt1);
+			$.ajax({
+				type: 'GET',
+				dataType: 'jsonp',
+				url: domain + 'doStuff.py?rgt=' + pwmRgt1
+			});
+			console.log("send command")
+		}
+
 	},
 	stop: function () {
 		$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
