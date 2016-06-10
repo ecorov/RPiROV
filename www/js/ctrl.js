@@ -48,6 +48,8 @@ $("#ctrlrod").draggable ({
 			var pwmRgt1 = -pwmRgt1
 		}
 		if (pwmLft1 != pwmLft0) {
+			console.log("pwmLft0" + pwmLft0)
+			console.log("pwmLft1" + pwmLft1)
 			pwmLft0 = pwmLft1
 			$("#debug").text('Left: '+ pwmLft1);
 			$.ajax({
@@ -58,6 +60,8 @@ $("#ctrlrod").draggable ({
 			console.log("send command")
 		}
 		if (pwmRgt1 != pwmRgt0) {
+			console.log("pwmRgt0" + pwmRgt0)
+			console.log("pwmRgt1" + pwmRgt1)
 			pwmRgt0 != pwmRgt1
 			$("#debug").text('Right: ' + pwmRgt1);
 			$.ajax({
