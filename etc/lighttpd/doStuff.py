@@ -27,6 +27,11 @@ pinLED = 19
 pinLft = 27
 pinRgt = 22
 
+pinDlyLft1 = 12
+pinDlyLft2 = 13
+pinDlyRgt1 = 5
+pinDlyRgt2 = 6
+
 s.set_servo(pinLft, 1000)
 time.sleep(1.0)
 s.set_servo(pinRgt, 1000)
@@ -66,9 +71,25 @@ def app(environ, start_response):
         stepMotor(int(i["stp"][0]))
         G.output(pinSlp, False)
     if "lft" in i:
-        s.set_servo(pinLft, int(i["lft"][0]))
+    	spd = int(i["lft"][0])
+    	if spd < 0:
+    	    G.setup(pinDlyLft1, G.OUT)
+    	    G.setup(pinDlyLft2, G.OUT)
+    	    s.set_servo(pinLft, abs(spd))
+    	else:
+    	    G.cleanup(pinDlyLft1)
+    	    G.cleanup(pinDlyLft2)
+    	    s.set_servo(pinLft, abs(spd))
     if "rgt" in i:
-        s.set_servo(pinRgt, int(i["rgt"][0]))
+    	spd = int(i["rgt"][0])
+    	if spd < 0:
+    	    G.setup(pinDlyRgt1, G.OUT)
+    	    G.setup(pinDlyRgt2, G.OUT)
+    	    s.set_servo(pinRgt, abs(spd))
+    	else:
+    	    G.cleanup(pinDlyRgt1)
+    	    G.cleanup(pinDlyRgt2)
+    	    s.set_servo(pinRgt, abs(spd))
     if "led" in i:
         if i["led"][0] == "on":
             G.setup(pinLED, G.OUT)
