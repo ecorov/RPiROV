@@ -62,7 +62,7 @@ $("#ctrlrod").draggable ({
 		if (pwmRgt1 != pwmRgt0) {
 			console.log("pwmRgt0: " + pwmRgt0)
 			console.log("pwmRgt1: " + pwmRgt1)
-			pwmRgt0 != pwmRgt1
+			pwmRgt0 = pwmRgt1
 			$("#debug").text('Right: ' + pwmRgt1);
 			$.ajax({
 				type: 'GET',
