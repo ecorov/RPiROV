@@ -1,4 +1,3 @@
-
 function pwd () {
 	if (md5($( "#ctrlpwd" )[0].value) == "8caf447c1cd0db7adbec6c890eb82c70") {
 		$( "#CtrlPannel" ).css( "display", "block" ) 
@@ -25,40 +24,46 @@ $("#ctrlrod").draggable ({
 	drag: function() {	
 		var x = Number($("#ctrlrod").css("left").replace("px", "")) - 120
 		var y = Number($("#ctrlrod").css("top" ).replace("px", "")) - 120
-		var v0 = parseInt(Math.abs(y))
-		var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
-		var scale = 2
-		if (x < 0) {
-			var pwmLft = v1*scale + 1000
-			var pwmRgt = v0*scale + 1000
+		if (y < 0) {
+			var v0 = parseInt(Math.abs(y))
+			var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
+			var scale = 2
+			if (x < 0) {
+				var pwmLft = v1*scale + 1000
+				var pwmRgt = v0*scale + 1000
+			} else {
+				var pwmLft = v0*scale + 1000
+				var pwmRgt = v1*scale + 1000
+			}
+			console.log(pwmLft)
+			console.log(pwmRgt)
+			var pwmLft1 = Math.floor(pwmLft/10) * 10
+			var pwmRgt1 = Math.floor(pwmRgt/10) * 10
+			
+			if (pwmLft1 != pwmLft0) {
+				pwmLft0 = pwmLft1
+				$("#debug").text('Left: '+ pwmLft1);
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: domain + 'doStuff.py?lft='+pwmLft1
+				});	
+			}
+			if (pwmRgt1 != pwmRgt0) {
+				pwmRgt0 != pwmRgt1
+				$("#debug").text('Right: ' + pwmRgt1);
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: domain + 'doStuff.py?rgt=' + pwmRgt1
+				});	
+			}
 		} else {
-			var pwmLft = v0*scale + 1000
-			var pwmRgt = v1*scale + 1000
-		}
-		console.log(pwmLft)
-		console.log(pwmRgt)
-		var pwmLft1 = Math.floor(pwmLft/10) * 10
-		var pwmRgt1 = Math.floor(pwmRgt/10) * 10
-		if (y>0) {
-			var pwmLft1 = -pwmLft1	
-			var pwmRgt1 = -pwmRgt1
-		}
-		if (pwmLft1 != pwmLft0) {
-			pwmLft0 = pwmLft1
-			$("#debug").text('Left: '+ pwmLft1);
+			$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
-				url: domain + 'doStuff.py?lft='+pwmLft1
-			});	
-		}
-		if (pwmRgt1 != pwmRgt0) {
-			pwmRgt0 != pwmRgt1
-			$("#debug").text('Right: ' + pwmRgt1);
-			$.ajax({
-				type: 'GET',
-				dataType: 'jsonp',
-				url: domain + 'doStuff.py?rgt=' + pwmRgt1
+				url: domain + 'doStuff.py?lft=1000&rgt=1000'
 			});	
 		}
 	},
@@ -130,11 +135,6 @@ $("#showsys").on('click', function() {
 
 
 /*
-
-
-
-
-
   var haveEvents = 'GamepadEvent' in window;
   var controllers = [];
   var rAF = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.requestAnimationFrame;
@@ -146,13 +146,11 @@ $("#showsys").on('click', function() {
     controllers[gamepad.index] = gamepad; 
     rAF(updateStatus);
   }
-
   function updateStatus() {
     scangamepads();
     var controller = controllers[0];
     var btn_0 = controller.buttons[6];
     var btn_1 = controller.buttons[7];
-
     if (btn_0.pressed) {
     	$("#debug").text('sink: 1')
     }
@@ -162,7 +160,6 @@ $("#showsys").on('click', function() {
     
     var x = controller.axes[0].toFixed(2);
     var y = controller.axes[1].toFixed(2);
-
     if (y < 0) {
       var v0 = Math.abs(y)
       var v1 = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
@@ -192,7 +189,6 @@ $("#showsys").on('click', function() {
     }
     rAF(updateStatus);
   }
-
   function scangamepads() {
     var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads() : []);
     for (var i = 0; i < gamepads.length; i++) {
@@ -268,9 +264,6 @@ $('#debug').bind("DOMSubtreeModified",function(){
   	}
   	
   }
-
-
-
   console.log('changed');
 });
 */
