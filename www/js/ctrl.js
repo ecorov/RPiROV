@@ -1,5 +1,8 @@
+$( "#CtrlPannel" ).css( "display", "block" ) 
+$( "#CtrlPwd" ).css( "display", "none" ) 
+$( "#mjpeg_dest" ).css( "display", "block" ) 
+
 function pwd () {
-	/*
 	if (md5($( "#ctrlpwd" )[0].value) == "8caf447c1cd0db7adbec6c890eb82c70") {
 		$( "#CtrlPannel" ).css( "display", "block" ) 
 		$( "#CtrlPwd" ).css( "display", "none" ) 
@@ -9,17 +12,10 @@ function pwd () {
 		alert("You can't control this ROV, but you can receive its video stream");
 		$( "#mjpeg_dest" ).css( "display", "block" ) 
 	}
-	*/
-	$( "#CtrlPannel" ).css( "display", "block" ) 
-	$( "#CtrlPwd" ).css( "display", "none" ) 
-	$( "#mjpeg_dest" ).css( "display", "block" ) 
 }
 
 
-
-
 var domain = 'http://' + document.domain + ':8080/'
-
 var pwmLft0 = 1000
 var pwmRgt0 = 1000
 $("#ctrlrod").draggable ({
