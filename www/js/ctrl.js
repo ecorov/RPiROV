@@ -79,25 +79,29 @@ $("#ctrlrod").draggable ({
 	}
 });
 
-var p0
-$( "#slider" ).slider({
+$("#slider").slider({
 	orientation: "vertical",
-	min:0,
-	max:380,
-	value: 200,
-	start: function() {
-		p0 = $( "#slider" ).slider( "value" )
-		console.log(p0)
-	}, 
+	min:-6,
+	max: 6,
+    	step:0.1,
+	value: 0,
+	slide: function() {
+        var step = $("#slider").slider("value")
+        var step = Math.floor(step * Math.abs(step)) + 1
+        $("#debug").text('Move: ' + step);
+	},
+
 	stop: function() {
-		var step = $( "#slider" ).slider( "value" )-p0
-		$("#debug").text('Current:' + $( "#slider" ).slider( "value" ) + "; moved: " + step);
+        var step = $("#slider").slider("value")
+        var step = Math.floor(step * Math.abs(step)) + 1
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
 			url: domain + 'doStuff.py?stp=' + step
 		});	
 		console.log(domain + 'doStuff.py?stp=' + step)
+        $("#slider").slider({value: 0})
+        $("#debug").text('');
 	}
 });
 
