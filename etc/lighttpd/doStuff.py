@@ -7,7 +7,7 @@ import RPi.GPIO as G
 G.setmode(G.BCM)
 
 from RPIO import PWM 
-s = PWM.Servo()
+s = PWM.Servo(pulse_incr_us=1)
 
 ## Define pins for devices
 ## Step motor
