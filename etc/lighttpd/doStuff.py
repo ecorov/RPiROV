@@ -100,3 +100,7 @@ WSGIServer(app).run()
 
 G.cleanup()
 
+
+# f = open('workfile', 'r+')
+# sensorData = f.read()
+# f.close()
