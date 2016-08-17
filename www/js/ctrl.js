@@ -1,6 +1,6 @@
 $(document).ready(function(){
         setInterval(function() {
-            $("#debug").load("js/sensors.html");
+            $("#sensorData").load("js/sensors.html");
         }, 500);
 });
 
