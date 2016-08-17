@@ -44,6 +44,8 @@
 		
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		<p id="debug"></p>
+		<p id="sensorData"></p>
+		
 		<div id="slider"></div>
 	
 	</div>
