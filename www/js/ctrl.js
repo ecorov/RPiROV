@@ -1,3 +1,12 @@
+$(document).ready(function(){
+        setInterval(function() {
+            $("#debug").load("js/sensors.html");
+        }, 500);
+});
+
+
+
+
 $( "#CtrlPannel" ).css( "display", "block" ) 
 $( "#CtrlPwd" ).css( "display", "none" ) 
 $( "#mjpeg_dest" ).css( "display", "block" ) 
