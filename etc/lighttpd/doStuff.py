@@ -101,6 +101,6 @@ WSGIServer(app).run()
 G.cleanup()
 
 
-# f = open('workfile', 'r+')
+# f = open('/var/www/js/sensors.html', 'r+')
 # sensorData = f.read()
 # f.close()
