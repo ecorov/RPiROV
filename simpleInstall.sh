@@ -1,5 +1,11 @@
 sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion python-flup lighttpd python-dev python-setuptools
 sudo easy_install -U RPIO
+# on RPi 3
+#cd ~
+#git clone https://github.com/metachris/RPIO.git --branch v2 --single-branch
+#cd RPIO
+#sudo python setup.py install
+
 
 sudo cp -r www/* /var/www/
 sudo mkdir -p /var/www/media
