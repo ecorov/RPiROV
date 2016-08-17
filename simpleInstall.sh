@@ -1,4 +1,4 @@
-sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion python-flup lighttpd python-setuptools
+sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion python-flup lighttpd python-dev python-setuptools
 sudo easy_install -U RPIO
 
 sudo cp -r www/* /var/www/
