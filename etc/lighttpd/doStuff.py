@@ -7,6 +7,7 @@ import RPi.GPIO as G
 G.setmode(G.BCM)
 
 from RPIO import PWM 
+PWM.set_loglevel(PWM.LOG_LEVEL_ERRORS)
 s = PWM.Servo(pulse_incr_us=1)
 
 ## Define pins for devices
