@@ -5,7 +5,7 @@ sudo easy_install -U RPIO
 #git clone https://github.com/metachris/RPIO.git --branch v2 --single-branch
 #cd RPIO
 #sudo python setup.py install
-
+#sudo easy_install -U RPIO
 
 sudo cp -r www/* /var/www/
 sudo mkdir -p /var/www/media
