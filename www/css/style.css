@@ -17,6 +17,17 @@ body {
   bottom: 400px;
   right:10px;
 }
+
+#powerscale {
+  position: absolute;
+  background-color: rgb(200,200,200);
+  bottom: 400px;
+  right:200px;
+}
+
+
+
+
 #ctrlrod {
   z-index: 99;
   position: relative;
