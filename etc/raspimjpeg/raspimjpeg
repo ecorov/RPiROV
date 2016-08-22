@@ -7,7 +7,7 @@
 # Camera Options
 #
 # annotation max length: 31 characters
-# annotation RPi ROV %Y.%M.%D_%h:%m:%s
+annotation 
 anno_background false
 anno3_custom_background_colour 0
 anno3_custom_background_Y 0
