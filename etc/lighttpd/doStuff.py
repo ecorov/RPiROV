@@ -218,7 +218,7 @@ def readMS5803():
         ms5803 = ms5803_14ba.read()
         thread.mbar = ms5803['mbar']
         fo = open("/var/www/js/sensors_depth_tmp.html", "wb")
-        fo.write("Pressure: " + str(thread.mbar));
+        fo.write("Pressure: " + str(thread.mbar) + " mbar");
         fo.close()
         copyfile("/var/www/js/sensors_depth_tmp.html", "/var/www/js/sensors_depth_current.html")
         thread.temp = ms5803['temp']
