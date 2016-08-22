@@ -49,6 +49,12 @@
   			<option value="comp">定向定速</option>
   			<option value="yaw">原地转向</option>
 		</select>
+		
+		<form id="powerscale">
+		  <input type="radio" value="half" checked> Half<br>
+		  <input type="radio" value="full"> Full <br>
+		</form>
+
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		<div id="depth_slider"></div>
 		
