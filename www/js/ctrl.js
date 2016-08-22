@@ -95,7 +95,7 @@ $("#depth_slider").slider({
 	min:1010,
 	max:1300,
     	step:1,
-	value: 1010,
+	value: 1300,
 	slide: function() {
         var depth = 1300 - $("#depth_slider").slider("value")
         $("#depth_target").text(' 目标深度: ' + depth + 'cm');
