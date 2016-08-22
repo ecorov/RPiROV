@@ -12,7 +12,7 @@ Test:
  unzip master.zip; 
  sudo chmod 777 -R RPiROV-master/;
  cd RPiROV-master/; 
- .simpleInstall.sh
+ ./simpleInstall.sh
  
  
  
