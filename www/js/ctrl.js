@@ -58,7 +58,7 @@ $("#ctrlrod").draggable ({
 			console.log("pwmLft0: " + pwmLft0)
 			console.log("pwmLft1: " + pwmLft1)
 			pwmLft0 = pwmLft1
-			$("#debug").text('Left: '+ pwmLft1);
+			$("#pwm_target").text('PWM_Left: '+ pwmLft1);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
@@ -70,7 +70,7 @@ $("#ctrlrod").draggable ({
 			console.log("pwmRgt0: " + pwmRgt0)
 			console.log("pwmRgt1: " + pwmRgt1)
 			pwmRgt0 = pwmRgt1
-			$("#debug").text('Right: ' + pwmRgt1);
+			$("#pwm_target").text('PWM_Right: ' + pwmRgt1);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
@@ -81,7 +81,7 @@ $("#ctrlrod").draggable ({
 
 	},
 	stop: function () {
-		$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
+		$("#pwm_target").text('PWM_Left: '+ 1000 + '   &   PWM_Right: ' + 1000);
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
