@@ -42,6 +42,13 @@
 			</div>
 		</div>
 -->		
+
+
+		<select id="drivemode">
+  			<option value="free">自由模式</option>
+  			<option value="comp">定向定速</option>
+  			<option value="yaw">原地转向</option>
+		</select>
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		
 		<p id="depth_current"></p>
