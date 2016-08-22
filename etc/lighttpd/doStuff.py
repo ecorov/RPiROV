@@ -201,7 +201,7 @@ def readHMC5883L():
     while getattr(thread, "do_run", True):
         thread.data = hmc.degrees(hmc.heading())[0]
         fo = open("/var/www/js/sensors_heading_tmp.html", "wb")
-        fo.write(str(thread.data));
+        fo.write('当前朝向： ' + str(thread.data));
         fo.close()
         copyfile("/var/www/js/sensors_heading_tmp.html", "/var/www/js/sensors_heading_current.html")
         time.sleep(.1)
@@ -218,12 +218,12 @@ def readMS5803():
         ms5803 = ms5803_14ba.read()
         thread.mbar = ms5803['mbar']
         fo = open("/var/www/js/sensors_depth_tmp.html", "wb")
-        fo.write(str(thread.mbar));
+        fo.write('当前水压： ' + str(thread.mbar));
         fo.close()
         copyfile("/var/www/js/sensors_depth_tmp.html", "/var/www/js/sensors_depth_current.html")
         thread.temp = ms5803['temp']
         fo = open("/var/www/js/sensors_temperature_tmp.html", "wb")
-        fo.write(str(thread.temp));
+        fo.write('当前水温： ' + str(thread.temp));
         fo.close()
         copyfile("/var/www/js/sensors_temperature_tmp.html", "/var/www/js/sensors_temperature.html")
         time.sleep(5)
