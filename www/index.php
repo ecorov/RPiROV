@@ -50,17 +50,14 @@
   			<option value="yaw">原地转向</option>
 		</select>
 		<div id="boundary"><div id="ctrlrod"></div></div>
+		<div id="depth_slider"></div>
 		
+		<p id="temperature"></p>		
 		<p id="depth_current"></p>
 		<p id="depth_target"></p>
-
 		<p id="heading_current"></p>
 		<p id="heading_target"></p>
-		
 		<p id="pwm_target"></p>		
-		<p id="temperature"></p>		
-		
-		<div id="depth_slider"></div>
 	
 	</div>
 
