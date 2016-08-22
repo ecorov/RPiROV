@@ -97,22 +97,19 @@ $("#depth_slider").slider({
     	step:1,
 	value: 1010,
 	slide: function() {
-        var depth = $("#depth_slider").slider("value")
-        //var step = Math.floor(depth * Math.abs(depth)) + 1
-        $("#depth_target").text('设定深度: ' + depth);
+        var depth = 1300 - $("#depth_slider").slider("value")
+        $("#depth_target").text(' 目标深度: ' + depth + 'cm');
 	},
 
 	stop: function() {
-        var depth = $("#depth_slider").slider("value")
-        // var step = Math.floor(step * Math.abs(step)) + 1
+        	var depth = 1300 - $("#depth_slider").slider("value")
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
-			url: domain + 'doStuff.py?stp=' + depth
+			url: domain + 'doStuff.py?depth=' + depth
 		});	
-		console.log(domain + 'doStuff.py?stp=' + depth)
-        //$("#depth_slider").slider({value: 0})
-        $("#depth_target").text('设定深度: ' + depth);
+		console.log(domain + 'doStuff.py?depth=' + depth)
+        $("#depth_target").text('目标深度: ' + depth  + 'cm');
 	}
 });
 
