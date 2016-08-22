@@ -92,13 +92,13 @@ $("#ctrlrod").draggable ({
 
 $("#depth_slider").slider({
 	orientation: "vertical",
-	min:1010,
+	min:1014,
 	max:1300,
     	step:1,
 	value: 1300,
 	slide: function() {
-        var depth = 1300 - $("#depth_slider").slider("value")
-        $("#depth_target").text(' 目标深度: ' + depth + 'cm');
+        	var depth = 1300 - $("#depth_slider").slider("value") + 1014
+        	$("#depth_target").text('Target: ' + depth + 'mbar');
 	},
 
 	stop: function() {
@@ -109,7 +109,7 @@ $("#depth_slider").slider({
 			url: domain + 'doStuff.py?depth=' + depth
 		});	
 		console.log(domain + 'doStuff.py?depth=' + depth)
-        $("#depth_target").text('目标深度: ' + depth  + 'cm');
+        $("#depth_target").text('Target: ' + depth + 'mbar');
 	}
 });
 
