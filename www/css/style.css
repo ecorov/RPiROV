@@ -23,7 +23,7 @@ body {
   background-color: red;
 
 }
-#slider {
+#depth_slider {
 	position: absolute;
 	height: 75vh;
 	bottom: 20px;
@@ -36,7 +36,7 @@ body {
 .ui-widget-content, .ui-slider-handle.ui-state-default.ui-corner-all {
 	background: none;
 }
-#slider a{
+#depth_slider a{
 	border: 1px solid white;
 	background-color: rgb(255, 51, 0);
 	height: 0px;
@@ -78,18 +78,28 @@ img {
 #showsys, #syscmd input {
 	float: right;
 }
-#debug{
+#depth_current, #depth_target, #heading_current, #heading_target, #pwm_target{
 	position: absolute;
 	top: 10px;
-	left: 200px;
-	background-color: white;
+	color:white;
+	background-color: rgba(200,200,200,0.1);
 }
-#sensorData{
-	position: absolute;
-	top: 15px;
-	left: 200px;
-	background-color: white;
+#depth_current{
+	left:25vw;
 }
+#depth_target{
+	left:40vw;
+}
+#heading_current{
+	left:55vw;
+}
+#heading_target{
+	left:70vw;
+}
+#pwm_target{
+	left:85vw;
+}
+
 .icon {
 	width:50px;
 	height:50px;
