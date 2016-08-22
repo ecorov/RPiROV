@@ -55,7 +55,7 @@
 		</select>
 		
 
-		<div id="boundary"><div id="ctrlrod"><div id="rovHeading"></div></div>
+		<div id="boundary"><div id="ctrlrod"><div id="rovHeading"></div></div></div>
 		<div id="depth_slider"></div>
 		
 		<p id="temperature"></p>		
