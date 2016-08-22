@@ -219,7 +219,7 @@ def readMS5803():
         fo.write(str(thread.mbar));
         fo.close()
         thread.temp = ms5803['temp']
-        fo = open("/var/www/js/sensors_temperature_current.html", "wb")
+        fo = open("/var/www/js/sensors_temperature.html", "wb")
         fo.write(str(thread.temp));
         fo.close()
         time.sleep(1)
