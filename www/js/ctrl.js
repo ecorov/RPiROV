@@ -1,6 +1,8 @@
 $(document).ready(function(){
         setInterval(function() {
-            $("#sensorData").load("js/sensors.html");
+            $("#temperature").load("js/sensors_temperature.html");
+            $("#depth_current").load("js/sensors_depth_current.html");
+            $("#heading_current").load("js/sensors_heading_current.html");
         }, 500);
 });
 
@@ -88,29 +90,29 @@ $("#ctrlrod").draggable ({
 	}
 });
 
-$("#slider").slider({
+$("#depth_slider").slider({
 	orientation: "vertical",
-	min:-6,
-	max: 6,
-    	step:0.1,
-	value: 0,
+	min:1010,
+	max:1300,
+    	step:1,
+	value: 1010,
 	slide: function() {
-        var step = $("#slider").slider("value")
-        var step = Math.floor(step * Math.abs(step)) + 1
-        $("#debug").text('Move: ' + step);
+        var depth = $("#depth_slider").slider("value")
+        //var step = Math.floor(depth * Math.abs(depth)) + 1
+        $("#depth_target").text('设定深度: ' + depth);
 	},
 
 	stop: function() {
-        var step = $("#slider").slider("value")
-        var step = Math.floor(step * Math.abs(step)) + 1
+        var depth = $("#depth_slider").slider("value")
+        // var step = Math.floor(step * Math.abs(step)) + 1
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
-			url: domain + 'doStuff.py?stp=' + step
+			url: domain + 'doStuff.py?stp=' + depth
 		});	
-		console.log(domain + 'doStuff.py?stp=' + step)
-        $("#slider").slider({value: 0})
-        $("#debug").text('');
+		console.log(domain + 'doStuff.py?stp=' + depth)
+        //$("#depth_slider").slider({value: 0})
+        $("#depth_target").text('设定深度: ' + depth);
 	}
 });
 
