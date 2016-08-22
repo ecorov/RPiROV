@@ -84,11 +84,14 @@ img {
 #showsys, #syscmd input {
 	float: right;
 }
-#depth_current, #depth_target, #heading_current, #heading_target, #pwm_target{
+ #temperature, #depth_current, #depth_target, #heading_current, #heading_target, #pwm_target{
 	position: absolute;
 	top: 10px;
 	color:white;
 	background-color: rgba(200,200,200,0.1);
+}
+#temperature{
+	left:15vw;
 }
 #depth_current{
 	left:25vw;
@@ -105,6 +108,8 @@ img {
 #pwm_target{
 	left:85vw;
 }
+
+
 
 .icon {
 	width:50px;
