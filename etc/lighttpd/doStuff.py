@@ -226,7 +226,7 @@ def readMS5803():
         fo.write("Temperature: " + str(thread.temp));
         fo.close()
         copyfile("/var/www/js/sensors_temperature_tmp.html", "/var/www/js/sensors_temperature.html")
-        time.sleep(5)
+        time.sleep(1)
 
 tReadMS5803 = threading.Thread(target=readMS5803)
 tReadMS5803.start()
