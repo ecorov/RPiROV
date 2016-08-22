@@ -33,7 +33,7 @@
 		</div>
 		
 		<a id="download" href="preview.php"><img class="icon" src="img/download.png"></a>
-		
+<!--		
 		<div id="system">
 			<a id="showsys"><img class="icon" src="img/power.png"></a><br>
 			<div id="syscmd" style="display:none;">
@@ -41,7 +41,7 @@
 				<input id="shutdown_button" type="button" value="shutdown" onclick="sys_shutdown();" >
 			</div>
 		</div>
-		
+-->		
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		
 		<p id="depth_current"></p>
