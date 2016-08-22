@@ -43,10 +43,17 @@
 		</div>
 		
 		<div id="boundary"><div id="ctrlrod"></div></div>
-		<p id="debug"></p>
-		<p id="sensorData"></p>
 		
-		<div id="slider"></div>
+		<p id="depth_current"></p>
+		<p id="depth_target"></p>
+
+		<p id="heading_current"></p>
+		<p id="heading_target"></p>
+		
+		<p id="pwm_target"></p>		
+		
+		
+		<div id="depth_slider"></div>
 	
 	</div>
 
