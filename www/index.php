@@ -51,8 +51,12 @@
 		</select>
 		
 		<form id="powerscale">
-		  <input type="radio" value="half" checked> Half<br>
-		  <input type="radio" value="full"> Full <br>
+		    <label class="radio-inline">
+		      <input type="radio" name="optradio">Option 1
+		    </label>
+		    <label class="radio-inline">
+		      <input type="radio" name="optradio">Option 2
+		    </label>
 		</form>
 
 		<div id="boundary"><div id="ctrlrod"></div></div>
