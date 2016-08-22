@@ -45,19 +45,15 @@
 
 
 		<select id="drivemode">
-  			<option value="free">自由模式</option>
-  			<option value="comp">定向定速</option>
-  			<option value="yaw">原地转向</option>
+  			<option value="free">Free driving</option>
+  			<option value="comp">Fix heading</option>
+  			<option value="yaw">Fix yawing</option>
+		</select>
+		<select id="powerscale">
+  			<option value="half">Half power</option>
+  			<option value="full">Full power</option>
 		</select>
 		
-		<form id="powerscale">
-		    <label class="radio-inline">
-		      <input type="radio" name="optradio" value="half">Half power
-		    </label>
-		    <label class="radio-inline">
-		      <input type="radio" name="optradio" value="full">Full power
-		    </label>
-		</form>
 
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		<div id="depth_slider"></div>
