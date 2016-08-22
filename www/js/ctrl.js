@@ -35,57 +35,79 @@ $("#ctrlrod").draggable ({
 	revertDuration: 10,
 	drag: function() {	
 		var x = Number($("#ctrlrod").css("left").replace("px", "")) - 120
-		var y = Number($("#ctrlrod").css("top" ).replace("px", "")) - 120
-	
-		var v0 = parseInt(Math.abs(y))
-		var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
-		var scale = 2
-		if (x < 0) {
-			var pwmLft = v1*scale + 1000
-			var pwmRgt = v0*scale + 1000
+		var y = 120 - Number($("#ctrlrod").css("top" ).replace("px", ""))
+		var z = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))/1.69) 
+
+		if (x >= 0) {
+			theta = parseInt(Math.atan2(x,y)/Math.PI*180)
 		} else {
-			var pwmLft = v0*scale + 1000
-			var pwmRgt = v1*scale + 1000
-		}
-		var pwmLft1 = Math.floor(pwmLft/10) * 10
-		var pwmRgt1 = Math.floor(pwmRgt/10) * 10
-		
-		if (y > 0) {
-			var pwmLft1 = -pwmLft1
-			var pwmRgt1 = -pwmRgt1
-		}
-		if (pwmLft1 != pwmLft0) {
-			console.log("pwmLft0: " + pwmLft0)
-			console.log("pwmLft1: " + pwmLft1)
-			pwmLft0 = pwmLft1
-			$("#pwm_target").text('PWM_Left: '+ pwmLft1);
-			$.ajax({
-				type: 'GET',
-				dataType: 'jsonp',
-				url: domain + 'doStuff.py?lft='+pwmLft1
-			});
-			console.log("send command")
-		}
-		if (pwmRgt1 != pwmRgt0) {
-			console.log("pwmRgt0: " + pwmRgt0)
-			console.log("pwmRgt1: " + pwmRgt1)
-			pwmRgt0 = pwmRgt1
-			$("#pwm_target").text('PWM_Right: ' + pwmRgt1);
-			$.ajax({
-				type: 'GET',
-				dataType: 'jsonp',
-				url: domain + 'doStuff.py?rgt=' + pwmRgt1
-			});
-			console.log("send command")
+			theta = parseInt(360 + Math.atan2(x,y)/Math.PI*180)
 		}
 
+		var mode = $("#drivemode").val()
+		var powerscale = $("#powerscale").val()
+		if (powerscale == "slow") {
+			var scale = 3; 
+		} else { 
+			var scale = 9; 
+		}
+		var z = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))/1.69) * scale + 1000
+
+
+		if (mode == "free") {
+			var pwm1 = parseInt(Math.abs(y))
+			var pwm2 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))			
+			if (x < 0) {
+				var pwmLft = pwm2*scale + 1000
+				var pwmRgt = pwm1*scale + 1000
+			} else {
+				var pwmLft = pwm1*scale + 1000
+				var pwmRgt = pwm2*scale + 1000
+			}
+			if (y < 0) {
+				var pwmLft = -pwmLft
+				var pwmRgt = -pwmRgt
+			}
+			if (pwmLft != pwmLft0) {
+				pwmLft0 = pwmLft
+				$("#pwm_target").text('PWM_Left: '+ pwmLft);
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: domain + 'doStuff.py?mod=fre&lft='+pwmLft
+				});
+			}
+			if (pwmRgt != pwmRgt0) {
+				pwmRgt0 = pwmRgt
+				$("#pwm_target").text('PWM_Right: ' + pwmRgt);
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					url: domain + 'doStuff.py?mod=fre&rgt=' + pwmRgt
+				});
+			}
+		} else if (mode == "yaw") {
+			$("#pwm_target").text('PWM: ' + z + "; Heading: "+ theta);
+			$.ajax({
+				type: 'GET',
+				dataType: 'jsonp',
+				url: domain + 'doStuff.py?mod=yaw&pwm='+ z + '&theta=' + theta
+			});	
+		} else {
+			$("#pwm_target").text('PWM: ' + z + "; Heading: "+ theta);
+			$.ajax({
+				type: 'GET',
+				dataType: 'jsonp',
+				url: domain + 'doStuff.py?mod=fix&pwm='+ z + '&theta=' + theta
+			});	
+		}
 	},
 	stop: function () {
-		$("#pwm_target").text('PWM_Left: '+ 1000 + '   &   PWM_Right: ' + 1000);
+		$("#pwm_target").text('Stop propellers!');
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
-			url: domain + 'doStuff.py?lft=1000&rgt=1000'
+			url: domain + 'doStuff.py?mod=stp'
 		});				
 	}
 });
