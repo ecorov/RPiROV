@@ -2,6 +2,7 @@
 
 import sys, time, urlparse, smbus, math, threading
 
+from shutil import copyfile
 
 from flup.server.fcgi import WSGIServer 
 
@@ -199,9 +200,10 @@ def readHMC5883L():
     hmc = hmc5883l(gauss = 4.7, declination = (-2,5))
     while getattr(thread, "do_run", True):
         thread.data = hmc.degrees(hmc.heading())[0]
-        fo = open("/var/www/js/sensors_heading_current.html", "wb")
+        fo = open("/var/www/js/sensors_heading_tmp.html", "wb")
         fo.write(str(thread.data));
         fo.close()
+        copyfile("/var/www/js/sensors_heading_tmp.html", "/var/www/js/sensors_heading_current.html")
         time.sleep(.1)
 
 tReadHMC5883L = threading.Thread(target=readHMC5883L)
@@ -215,13 +217,15 @@ def readMS5803():
     while getattr(thread, "do_run", True):
         ms5803 = ms5803_14ba.read()
         thread.mbar = ms5803['mbar']
-        fo = open("/var/www/js/sensors_depth_current.html", "wb")
+        fo = open("/var/www/js/sensors_depth_tmp.html", "wb")
         fo.write(str(thread.mbar));
         fo.close()
+        copyfile("/var/www/js/sensors_depth_tmp.html", "/var/www/js/sensors_depth_current.html")
         thread.temp = ms5803['temp']
-        fo = open("/var/www/js/sensors_temperature.html", "wb")
+        fo = open("/var/www/js/sensors_temperature_tmp.html", "wb")
         fo.write(str(thread.temp));
         fo.close()
+        copyfile("/var/www/js/sensors_temperature_tmp.html", "/var/www/js/sensors_temperature.html")
         time.sleep(5)
 
 tReadMS5803 = threading.Thread(target=readMS5803)
