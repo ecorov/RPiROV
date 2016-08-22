@@ -3,6 +3,7 @@
 import sys, time, urlparse
 from flup.server.fcgi import WSGIServer 
 
+import MS5803, hmc5883l
 import RPi.GPIO as G   
 G.setmode(G.BCM)
 
