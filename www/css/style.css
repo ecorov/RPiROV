@@ -11,7 +11,13 @@ body {
   bottom: 10px;
   right:10px;
 }
-
+#drivemode {
+  position: absolute;
+  background-color: rgb(200,200,200);
+  opacity: 0.1;
+  bottom: 400px;
+  right:10px;
+}
 #ctrlrod {
   z-index: 99;
   position: relative;
