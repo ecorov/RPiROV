@@ -98,18 +98,18 @@ $("#depth_slider").slider({
 	value: 1300,
 	slide: function() {
         	var depth = 1300 - $("#depth_slider").slider("value") + 1014
-        	$("#depth_target").text('Target: ' + depth + 'mbar');
+        	$("#depth_target").text('Target Pressure: ' + depth + ' mbar');
 	},
 
 	stop: function() {
-        	var depth = 1300 - $("#depth_slider").slider("value")
+        	var depth = 1300 - $("#depth_slider").slider("value") + 1014
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
 			url: domain + 'doStuff.py?depth=' + depth
 		});	
 		console.log(domain + 'doStuff.py?depth=' + depth)
-        $("#depth_target").text('Target: ' + depth + 'mbar');
+        $("#depth_target").text('Target Pressure: ' + depth + ' mbar');
 	}
 });
 
