@@ -48,7 +48,13 @@ if [ ! -e /var/www/raspimjpeg ]; then
   sudo ln -s /etc/raspimjpeg /var/www/raspimjpeg
 fi
 sudo cp etc/lighttpd/doStuff.py /var/www/html
+sudo cp etc/lighttpd/MS5803.py /var/www/html
+sudo cp etc/lighttpd/hmc5883l.py /var/www/html
+
 sudo chmod 755 /var/www/html/doStuff.py
+sudo chmod 755 /var/www/html/MS5803.py
+sudo chmod 755 /var/www/html/hmc5883l.py
+
 if [ ! -e /usr/bin/pythonRoot ]; then
   sudo cp /usr/bin/python2.7 /usr/bin/pythonRoot
   sudo chmod u+s /usr/bin/pythonRoot
