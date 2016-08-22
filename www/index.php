@@ -52,10 +52,10 @@
 		
 		<form id="powerscale">
 		    <label class="radio-inline">
-		      <input type="radio" name="optradio">Option 1
+		      <input type="radio" name="optradio" value="half">Half power
 		    </label>
 		    <label class="radio-inline">
-		      <input type="radio" name="optradio">Option 2
+		      <input type="radio" name="optradio" value="full">Full power
 		    </label>
 		</form>
 
