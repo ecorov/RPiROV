@@ -58,7 +58,7 @@
 		<p id="heading_target"></p>
 		
 		<p id="pwm_target"></p>		
-		
+		<p id="temperature"></p>		
 		
 		<div id="depth_slider"></div>
 	
