@@ -50,8 +50,8 @@
   			<option value="yaw">Fix yawing</option>
 		</select>
 		<select id="powerscale">
-  			<option value="half">Half power</option>
-  			<option value="full">Full power</option>
+  			<option value="slow">Slow speed</option>
+  			<option value="fast">Fast speed</option>
 		</select>
 		
 
