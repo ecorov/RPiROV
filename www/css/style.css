@@ -14,7 +14,6 @@ body {
 #drivemode {
   position: absolute;
   background-color: rgb(200,200,200);
-  //opacity: 0.1;
   bottom: 400px;
   right:10px;
 }
