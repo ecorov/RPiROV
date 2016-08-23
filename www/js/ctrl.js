@@ -93,14 +93,16 @@ $("#ctrlrod").draggable ({
 				});
 			}
 		} else if (mode == "yaw") {
-			$("#pwm_target").text('PWM: ' + z + "; Heading: "+ theta);
+			$("#heading_target").text("Heading: "+ theta);
+			$("#pwm_target").text('PWM: ' + z);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
 				url: domain + 'doStuff.py?mod=yaw&pwm='+ z + '&theta=' + theta
 			});	
 		} else {
-			$("#pwm_target").text('PWM: ' + z + "; Heading: "+ theta);
+			$("#heading_target").text("Heading: "+ theta);
+			$("#pwm_target").text('PWM: ' + z);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
