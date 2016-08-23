@@ -54,8 +54,8 @@
   			<option value="fast">Fast speed</option>
 		</select>
 		
-
-		<div id="boundary"><div id="rovHeading"></div><div id="ctrlrod"></div></div>
+		<div id="rovHeading"></div>
+		<div id="boundary"><div id="ctrlrod"></div></div>
 		<div id="depth_slider"></div>
 		
 		<p id="temperature"></p>		
