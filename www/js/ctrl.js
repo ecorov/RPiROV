@@ -1,13 +1,14 @@
 
 $(document).ready(function(){
         setInterval(function() {
+            $("#leak").load("js/sensors_leak.html");	
             $("#temperature").load("js/sensors_temperature.html");
             $("#depth_current").load("js/sensors_depth_current.html");
             $("#heading_current").load("js/sensors_heading_current.html");
             var theta = parseInt($("#heading_current").text().replace("Heading: ", ""))
-			x = Math.cos((90+360-theta)/180*Math.PI)*150
-			y = Math.sin((90+360-theta)/180*Math.PI)*150
-			$("#rovHeading").attr("style", "right:"+parseInt(150-x)+"px;bottom:" + parseInt(150+y) + "px;background-color:red;width:20px;height:20px;position: absolute;border-radius: 10px;")
+	    x = Math.cos((90+360-theta)/180*Math.PI)*150
+	    y = Math.sin((90+360-theta)/180*Math.PI)*150
+	    $("#rovHeading").attr("style", "right:"+parseInt(150-x)+"px;bottom:" + parseInt(150+y) + "px;background-color:red;width:20px;height:20px;position: absolute;border-radius: 10px;")
         }, 500);
 });
 
