@@ -105,11 +105,11 @@ img {
 }
 #depth_current{
 	left:200px;
-	top: 20px;
+	top: 30px;
 }
 #depth_target{
 	left:200px;
-	top: 30px;
+	top: 50px;
 }
 #heading_current{
 	right:100px;
@@ -117,11 +117,11 @@ img {
 }
 #heading_target{
 	right:100px;
-	top: 20px;
+	top: 30px;
 }
 #pwm_target{
 	right:100px;
-	top: 30px;
+	top: 50px;
 }
 
 
