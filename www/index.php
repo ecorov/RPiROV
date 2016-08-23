@@ -54,6 +54,7 @@
   			<option value="fast">Fast speed</option>
 		</select>
 		
+		<div id="leak"></div>
 		<div id="rovHeading"></div>
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		<div id="depth_slider"></div>
