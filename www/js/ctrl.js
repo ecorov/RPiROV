@@ -93,7 +93,7 @@ $("#ctrlrod").draggable ({
 				});
 			}
 		} else if (mode == "yaw") {
-			$("#heading_target").text("Heading: "+ theta);
+			$("#heading_target").text("Heading_target: "+ theta);
 			$("#pwm_target").text('PWM: ' + z);
 			$.ajax({
 				type: 'GET',
@@ -101,7 +101,7 @@ $("#ctrlrod").draggable ({
 				url: domain + 'doStuff.py?mod=yaw&pwm='+ z + '&theta=' + theta
 			});	
 		} else {
-			$("#heading_target").text("Heading: "+ theta);
+			$("#heading_target").text("Heading_target: "+ theta);
 			$("#pwm_target").text('PWM: ' + z);
 			$.ajax({
 				type: 'GET',
@@ -128,7 +128,7 @@ $("#depth_slider").slider({
 	value: 1300,
 	slide: function() {
         	var depth = 1300 - $("#depth_slider").slider("value") + 1014
-        	$("#depth_target").text('Target Pressure: ' + depth + ' mbar');
+        	$("#depth_target").text('Pressure_target: ' + depth + ' mbar');
 	},
 
 	stop: function() {
@@ -139,7 +139,7 @@ $("#depth_slider").slider({
 			url: domain + 'doStuff.py?depth=' + depth
 		});	
 		console.log(domain + 'doStuff.py?depth=' + depth)
-        $("#depth_target").text('Target Pressure: ' + depth + ' mbar');
+        $("#depth_target").text('Pressure_target: ' + depth + ' mbar');
 	}
 });
 
