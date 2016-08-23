@@ -25,7 +25,15 @@ body {
   right:10px;
 }
 
-
+#leak {
+  position: absolute;
+    top: 50vh;
+    width: 100vw;
+    text-align: center;
+    font-size: 100px;
+    color: red;
+    font-weight: bold;
+}
 
 
 #ctrlrod {
