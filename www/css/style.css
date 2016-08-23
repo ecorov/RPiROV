@@ -96,27 +96,32 @@ img {
 }
  #temperature, #depth_current, #depth_target, #heading_current, #heading_target, #pwm_target{
 	position: absolute;
-	top: 10px;
 	color:white;
 	background-color: rgba(200,200,200,0.1);
 }
 #temperature{
-	left:15vw;
+	left:200px;
+	top: 10px;
 }
 #depth_current{
-	left:25vw;
+	left:200px;
+	top: 20px;
 }
 #depth_target{
-	left:40vw;
+	left:200px;
+	top: 30px;
 }
 #heading_current{
-	left:55vw;
+	right:100px;
+	top: 10px;
 }
 #heading_target{
-	left:70vw;
+	right:100px;
+	top: 20px;
 }
 #pwm_target{
-	left:85vw;
+	right:100px;
+	top: 30px;
 }
 
 
