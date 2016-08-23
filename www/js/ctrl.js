@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
         setInterval(function() {
             $("#temperature").load("js/sensors_temperature.html");
@@ -5,7 +6,7 @@ $(document).ready(function(){
             $("#heading_current").load("js/sensors_heading_current.html");
         }, 500);
 });
-
+*/
 
 
 
