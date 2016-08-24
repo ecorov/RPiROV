@@ -294,12 +294,77 @@ G.setup(pinLED, G.OUT)
 time.sleep(1)
 G.cleanup(pinLED)
 
+def PID_yaw(heading_target):
+    ## parameters for PID control
+    K1 = 2
+    K2 = 3
+    heading_torrence = 5
+    ## Initial heading error
+    heading_senosr = tReadHMC5883L.data
+    ## heading_error_last = heading_target - heading_senosr
+    ## create thread;
+    thread = threading.currentThread()    
+    thread.heading_target = thread.heading_new = heading_target
+    ## Start the loop;
+    while getattr(thread, "do_run", True):
+        if(thread.heading_new != thread.heading_target):
+            heading_target = thread.heading_new
+            thread.heading_target = thread.heading_new
+        if heading_target == -1:
+            time.sleep(1)
+            s.set_servo(pinLft, 1000)
+            s.set_servo(pinRgt, 1000)
+            ## print("waiting heading_target input every second...")
+        else:
+            heading_senosr = tReadHMC5883L.data
+            if heading_senosr > heading_target:
+                heading_error = heading_senosr - heading_target
+                if heading_error >= 180:
+                    heading_error = 360 - heading_error
+                    dirction = "right"
+                else:
+                    dirction = "left"
+            else:
+                heading_error =  heading_target - heading_senosr
+                if heading_error >= 180:
+                    heading_error = 360 - heading_error
+                    dirction = "left"
+                else:
+                    dirction = "right"
+            if dirction == "left":
+                G.cleanup(pinDlyLft1)
+                G.cleanup(pinDlyLft2)
+                G.cleanup(pinDlyRgt1)
+                G.cleanup(pinDlyRgt2)
+                G.setup(pinDlyLft1, G.OUT)
+                G.setup(pinDlyLft2, G.OUT)
+                s.set_servo(pinLft, heading_error * K2 + 1030)
+                s.set_servo(pinRgt, heading_error * K1 + 1030)
+            if dirction == "right":
+                G.cleanup(pinDlyLft1)
+                G.cleanup(pinDlyLft2)
+                G.cleanup(pinDlyRgt1)
+                G.cleanup(pinDlyRgt2)
+                G.setup(pinDlyRgt1, G.OUT)
+                G.setup(pinDlyRgt2, G.OUT)
+                s.set_servo(pinLft, heading_error * K1 + 1030)
+                s.set_servo(pinRgt, heading_error * K2 + 1030)
+            time.sleep(.5)
+
+
+
+tPID_yaw = threading.Thread(target=PID_yaw, args=(-1,))
+tPID_yaw.start()
+
+
 
 def app(environ, start_response):
     start_response("200 OK", [("Content-Type", "text/html")])
     i = urlparse.parse_qs(environ["QUERY_STRING"])
     yield ('&nbsp;') 
     #  url = "stp=-300&stp=50&lft=1050&rgt=1100&led=off"
+    if "yaw" in i:
+        tPID_yaw.heading_new ＝int(i["yaw"][0])   
     if "stp" in i:
         stepMotor(int(i["stp"][0]))
     if "lft" in i:
