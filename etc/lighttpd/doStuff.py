@@ -354,15 +354,22 @@ def PID_yaw(heading_target):
 tPID_yaw = threading.Thread(target=PID_yaw, args=(-1,))
 tPID_yaw.start()
 
+def tPID_yaw_update(yaw = -1):
+	tPID_yaw.heading_new = yaw
+
+
+	
+
+
 def app(environ, start_response):
     start_response("200 OK", [("Content-Type", "text/html")])
     i = urlparse.parse_qs(environ["QUERY_STRING"])
     yield ('&nbsp;') 
     #  url = "stp=-300&stp=50&lft=1050&rgt=1100&led=off"
-    if "yaw" in i:
-        tPID_yaw.heading_new ＝int(i["yaw"][0])   
     if "stp" in i:
         stepMotor(int(i["stp"][0]))
+    if "yaw" in i:
+        tPID_yaw_update(int(i["yaw"][0]))
     if "lft" in i:
     	spd = int(i["lft"][0])
     	if spd < -1020:
