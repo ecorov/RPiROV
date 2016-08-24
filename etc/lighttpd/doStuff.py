@@ -234,17 +234,6 @@ tReadMS5803.start()
 
 
 
-#ms5803_14ba = MS5803()
-#hmc5883l = hmc5883l(gauss = 4.7, declination = (-2,5))
-
-#hmc5883l.degrees(hmc5883l.heading())[0]
-#ms5803 = ms5803_14ba.read()
-#mbar = ms5803['mbar']
-#temp = ms5803['temp']
-
-
-
-
 import RPi.GPIO as G   
 G.setmode(G.BCM)
 
