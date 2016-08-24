@@ -315,7 +315,7 @@ def PID_yaw(heading_target):
             if propellerStop == False:
             	s.set_servo(pinLft, 1000)
             	s.set_servo(pinRgt, 1000)
-            	propellerStop == True
+            	propellerStop = True
             time.sleep(1)
             ## print("waiting heading_target input every second...")
         else:
