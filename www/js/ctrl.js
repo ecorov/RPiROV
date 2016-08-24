@@ -98,7 +98,7 @@ $("#ctrlrod").draggable ({
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
-				url: domain + 'doStuff.py?mod='+ theta
+				url: domain + 'doStuff.py?yaw='+ theta
 			});	
 		} else {
 			$("#heading_target").text("Heading_target: "+ theta);
