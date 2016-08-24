@@ -305,17 +305,21 @@ def PID_yaw(heading_target):
     ## create thread;
     thread = threading.currentThread()    
     thread.heading_target = thread.heading_new = heading_target
+    propellerStop = False
     ## Start the loop;
     while getattr(thread, "do_run", True):
         if(thread.heading_new != thread.heading_target):
             heading_target = thread.heading_new
             thread.heading_target = thread.heading_new
         if heading_target == -1:
+            if propellerStop == False:
+            	s.set_servo(pinLft, 1000)
+            	s.set_servo(pinRgt, 1000)
+            	propellerStop == True
             time.sleep(1)
-            ## s.set_servo(pinLft, 1000)
-            ## s.set_servo(pinRgt, 1000)
             ## print("waiting heading_target input every second...")
         else:
+            propellerStop == True
             heading_senosr = tReadHMC5883L.data
             if heading_senosr > heading_target:
                 heading_error = heading_senosr - heading_target
@@ -338,8 +342,8 @@ def PID_yaw(heading_target):
                 G.cleanup(pinDlyRgt2)
                 G.setup(pinDlyLft1, G.OUT)
                 G.setup(pinDlyLft2, G.OUT)
-                s.set_servo(pinLft, heading_error * K2 + 1030)
-                s.set_servo(pinRgt, heading_error * K1 + 1030)
+                s.set_servo(pinLft, heading_error * K2 + 1020)
+                s.set_servo(pinRgt, heading_error * K1 + 1020)
             if dirction == "right":
                 G.cleanup(pinDlyLft1)
                 G.cleanup(pinDlyLft2)
@@ -347,14 +351,14 @@ def PID_yaw(heading_target):
                 G.cleanup(pinDlyRgt2)
                 G.setup(pinDlyRgt1, G.OUT)
                 G.setup(pinDlyRgt2, G.OUT)
-                s.set_servo(pinLft, heading_error * K1 + 1030)
-                s.set_servo(pinRgt, heading_error * K2 + 1030)
+                s.set_servo(pinLft, heading_error * K1 + 1020)
+                s.set_servo(pinRgt, heading_error * K2 + 1020)
             time.sleep(.5)
 
 tPID_yaw = threading.Thread(target=PID_yaw, args=(-1,))
 tPID_yaw.start()
 
-def tPID_yaw_update(yaw = -1):
+def PID(yaw = -1):
 	tPID_yaw.heading_new = yaw
 
 
@@ -369,7 +373,7 @@ def app(environ, start_response):
     if "stp" in i:
         stepMotor(int(i["stp"][0]))
     if "yaw" in i:
-        tPID_yaw_update(int(i["yaw"][0]))
+        PID(yaw = int(i["yaw"][0]))
     if "lft" in i:
     	spd = int(i["lft"][0])
     	if spd < -1020:
