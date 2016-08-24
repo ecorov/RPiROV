@@ -312,8 +312,8 @@ def PID_yaw(heading_target):
             thread.heading_target = thread.heading_new
         if heading_target == -1:
             time.sleep(1)
-            s.set_servo(pinLft, 1000)
-            s.set_servo(pinRgt, 1000)
+            ## s.set_servo(pinLft, 1000)
+            ## s.set_servo(pinRgt, 1000)
             ## print("waiting heading_target input every second...")
         else:
             heading_senosr = tReadHMC5883L.data
