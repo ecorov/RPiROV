@@ -351,12 +351,8 @@ def PID_yaw(heading_target):
                 s.set_servo(pinRgt, heading_error * K2 + 1030)
             time.sleep(.5)
 
-
-
 tPID_yaw = threading.Thread(target=PID_yaw, args=(-1,))
 tPID_yaw.start()
-
-
 
 def app(environ, start_response):
     start_response("200 OK", [("Content-Type", "text/html")])
