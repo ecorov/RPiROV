@@ -283,6 +283,7 @@ def stepMotor(step):
         G.output(pinStp, True)
         G.output(pinStp, False)
         time.sleep(0.0001)
+    G.output(pinSlp, False)
     return
 	
 
@@ -301,7 +302,6 @@ def app(environ, start_response):
     #  url = "stp=-300&stp=50&lft=1050&rgt=1100&led=off"
     if "stp" in i:
         stepMotor(int(i["stp"][0]))
-        G.output(pinSlp, False)
     if "lft" in i:
     	spd = int(i["lft"][0])
     	if spd < -1020:
