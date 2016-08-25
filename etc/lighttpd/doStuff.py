@@ -241,8 +241,8 @@ G.cleanup(pinLED)
 
 def PID_yaw(heading_target):
     ## parameters for PID control
-    K1 = 2
-    K2 = 3
+    K1 = 1
+    K2 = 1
     heading_torrence = 5
     ## Initial heading error
     heading_senosr = tReadHMC5883L.data
