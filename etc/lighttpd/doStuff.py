@@ -241,8 +241,8 @@ G.cleanup(pinLED)
 
 def PID_yaw(heading_target):
     ## parameters for PID control
-    K1 = 1
-    K2 = 1
+    K1 = 2
+    K2 = 2
     heading_torrence = 5
     ## Initial heading error
     heading_senosr = tReadHMC5883L.data
@@ -280,25 +280,30 @@ def PID_yaw(heading_target):
                     dirction = "left"
                 else:
                     dirction = "right"
-            if dirction == "right":
-                G.cleanup(pinDlyLft1)
-                G.cleanup(pinDlyLft2)
-                G.cleanup(pinDlyRgt1)
-                G.cleanup(pinDlyRgt2)
-                G.setup(pinDlyLft1, G.OUT)
-                G.setup(pinDlyLft2, G.OUT)
-                s.set_servo(pinLft, heading_error * K2 + 1020)
-                s.set_servo(pinRgt, heading_error * K1 + 1020)
-            if dirction == "left":
-                G.cleanup(pinDlyLft1)
-                G.cleanup(pinDlyLft2)
-                G.cleanup(pinDlyRgt1)
-                G.cleanup(pinDlyRgt2)
-                G.setup(pinDlyRgt1, G.OUT)
-                G.setup(pinDlyRgt2, G.OUT)
-                s.set_servo(pinLft, heading_error * K1 + 1020)
-                s.set_servo(pinRgt, heading_error * K2 + 1020)
-            time.sleep(.5)
+            if heading_error > heading_torrence: 
+	            if dirction == "right":
+	                G.cleanup(pinDlyLft1)
+	                G.cleanup(pinDlyLft2)
+	                G.cleanup(pinDlyRgt1)
+	                G.cleanup(pinDlyRgt2)
+	                G.setup(pinDlyLft1, G.OUT)
+	                G.setup(pinDlyLft2, G.OUT)
+	                s.set_servo(pinLft, heading_error * K2 + 1035)
+	                s.set_servo(pinRgt, heading_error * K1 + 1035)
+	            if dirction == "left":
+	                G.cleanup(pinDlyLft1)
+	                G.cleanup(pinDlyLft2)
+	                G.cleanup(pinDlyRgt1)
+	                G.cleanup(pinDlyRgt2)
+	                G.setup(pinDlyRgt1, G.OUT)
+	                G.setup(pinDlyRgt2, G.OUT)
+	                s.set_servo(pinLft, heading_error * K1 + 1035)
+	                s.set_servo(pinRgt, heading_error * K2 + 1035)
+	            time.sleep(.5)
+			else:
+	            s.set_servo(pinLft, 1000)
+	            s.set_servo(pinRgt, 1000)
+	            time.sleep(.5)
 
 tPID_yaw = threading.Thread(target=PID_yaw, args=(-1,))
 tPID_yaw.start()
