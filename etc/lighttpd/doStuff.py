@@ -280,7 +280,7 @@ def PID_yaw(heading_target):
                     dirction = "left"
                 else:
                     dirction = "right"
-            if dirction == "left":
+            if dirction == "right":
                 G.cleanup(pinDlyLft1)
                 G.cleanup(pinDlyLft2)
                 G.cleanup(pinDlyRgt1)
@@ -289,7 +289,7 @@ def PID_yaw(heading_target):
                 G.setup(pinDlyLft2, G.OUT)
                 s.set_servo(pinLft, heading_error * K2 + 1020)
                 s.set_servo(pinRgt, heading_error * K1 + 1020)
-            if dirction == "right":
+            if dirction == "left":
                 G.cleanup(pinDlyLft1)
                 G.cleanup(pinDlyLft2)
                 G.cleanup(pinDlyRgt1)
