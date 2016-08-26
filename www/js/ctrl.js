@@ -143,6 +143,29 @@ $("#depth_slider").slider({
 	}
 });
 
+$("#updown").slider({
+	orientation: "vertical",
+	min:0,
+	max:30,
+    	step:1,
+	value: 15,
+	slide: function() {
+        	var stp = $("#depth_slider").slider("value") - 15
+        	$("#depth_target").text('Step: ' + stp);
+	},
+
+	stop: function() {
+        	var stp = $("#depth_slider").slider("value") - 15
+		$.ajax({
+			type: 'GET',
+			dataType: 'jsonp',
+			url: domain + 'doStuff.py?stp=' + stp
+		});	
+		console.log(domain + 'doStuff.py?stp=' + stp)
+        $("#depth_target").text('Step: ' + stp );
+	}
+});
+
 
 $( "#led_button" ).on('click', function() {
 	var led = $('#led_button img').attr('src');
