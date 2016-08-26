@@ -315,7 +315,7 @@ def PID_yaw(yaw = -1):
 	tPID_yaw.heading_new = yaw
 
 def PID_mbar():
-    mbar_target = mbar_sensor = 1003
+    mbar_target = mbar_sensor = 0
     thread = threading.currentThread()    
     thread.mbar_target = thread.mbar_new = mbar_target
     thread.position_0 = 0
