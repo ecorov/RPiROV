@@ -79,6 +79,7 @@ body {
 }
 .ui-widget-content, .ui-slider-handle.ui-state-default.ui-corner-all {
 	background: none;
+	display: none;
 }
 #depth_slider a{
 	border: 1px solid white;
