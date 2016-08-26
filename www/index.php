@@ -58,6 +58,7 @@
 		<div id="rovHeading"></div>
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		<div id="depth_slider"></div>
+		<div id="updown"></div>
 		
 		<p id="temperature"></p>		
 		<p id="depth_current"></p>
