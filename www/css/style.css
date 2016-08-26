@@ -57,6 +57,16 @@ body {
 	background-color: rgb(0, 102, 255);
 	opacity: 0.2;
 }
+#updown a{
+	border: 1px solid white;
+	background-color: rgb(255, 255, 0);
+	height: 0px;
+	width: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 15px;
+	
+}
 
 #depth_slider {
 	position: absolute;
