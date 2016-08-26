@@ -47,6 +47,17 @@ body {
   background-color: red;
 
 }
+
+#updown {
+	position: absolute;
+	height: 75vh;
+	bottom: 20px;
+	left:138px;
+	border: 1px solid white;
+	background-color: rgb(0, 102, 255);
+	opacity: 0.2;
+}
+
 #depth_slider {
 	position: absolute;
 	height: 75vh;
@@ -55,7 +66,6 @@ body {
 	border: 1px solid white;
 	background-color: rgb(0, 102, 255);
 	opacity: 0.2;
-
 }
 .ui-widget-content, .ui-slider-handle.ui-state-default.ui-corner-all {
 	background: none;
