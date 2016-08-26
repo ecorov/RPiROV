@@ -21,7 +21,7 @@ class MS5803:
         return True
     def reset(self):
         self.bus.write_byte(self.address,0x1E)
-        time.sleep(0.05)
+        time.sleep(0.1)
     def read(self,osr=4096):
         D1 = self._raw_pressure(osr=osr)
         D2 = self._raw_temperature(osr=osr)
@@ -59,14 +59,14 @@ class MS5803:
         return C
     def _raw_pressure(self,osr=4096):
         self.bus.write_byte(self.address,0x40 + self.osr[osr])
-        time.sleep(0.01)
+        time.sleep(0.1)
         tmp = self.bus.read_i2c_block_data(self.address,0,3)
         tmp.insert(0,0)
         D1 = struct.unpack('>I',''.join([chr(c) for c in tmp]))[0]
         return D1
     def _raw_temperature(self,osr=4096):
         self.bus.write_byte(self.address,0x50 + self.osr[osr])
-        time.sleep(0.01)
+        time.sleep(0.1)
         tmp = self.bus.read_i2c_block_data(self.address,0,3)
         tmp.insert(0,0)
         D2 = struct.unpack('>I',''.join([chr(c) for c in tmp]))[0]
@@ -171,7 +171,7 @@ def readMS5803():
         fo.write("Temperature: " + str(thread.temp));
         fo.close()
         copyfile("/var/www/js/sensors_temperature_tmp.html", "/var/www/js/sensors_temperature.html")
-        time.sleep(1)
+        time.sleep(.5)
 
 tReadMS5803 = threading.Thread(target=readMS5803)
 tReadMS5803.start()
