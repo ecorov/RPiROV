@@ -230,7 +230,8 @@ def stepMotor(step):
         time.sleep(0.0001)
     G.output(pinSlp, False)
     return
-	
+
+
 
 G.setup(pinLED, G.OUT)
 time.sleep(1)
@@ -238,6 +239,7 @@ G.cleanup(pinLED)
 G.setup(pinLED, G.OUT)
 time.sleep(1)
 G.cleanup(pinLED)
+
 
 def PID_yaw(heading_target):
     ## parameters for PID control
@@ -312,8 +314,6 @@ tPID_yaw.start()
 def PID(yaw = -1):
 	tPID_yaw.heading_new = yaw
 
-
-	
 
 
 def app(environ, start_response):
