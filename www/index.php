@@ -59,7 +59,7 @@
 		<div id="boundary"><div id="ctrlrod"></div></div>
 		<div id="depth_slider"></div>
 		<div id="updown"></div>
-		<button onclick="stopStepMotor()">Stop step motor! </button>
+		<button id="stopStepMotor" onclick="stopStepMotor()">Stop step motor! </button>
 		<p id="temperature"></p>		
 		<p id="depth_current"></p>
 		<p id="depth_target"></p>
