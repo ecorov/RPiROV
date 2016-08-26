@@ -162,7 +162,8 @@ $("#updown").slider({
 			url: domain + 'doStuff.py?stp=' + stp
 		});	
 		console.log(domain + 'doStuff.py?stp=' + stp)
-        $("#depth_target").text('Step: ' + stp );
+        	$("#depth_target").text('Step: ' + stp );
+        	$("#depth_target").slider({value: 15})
 	}
 });
 
