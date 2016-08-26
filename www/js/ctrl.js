@@ -150,12 +150,12 @@ $("#updown").slider({
     	step:1,
 	value: 15,
 	slide: function() {
-        	var stp = $("#depth_slider").slider("value") - 15
+        	var stp = $("#updown").slider("value") - 15
         	$("#depth_target").text('Step: ' + stp);
 	},
 
 	stop: function() {
-        	var stp = $("#depth_slider").slider("value") - 15
+        	var stp = $("#updown").slider("value") - 15
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
