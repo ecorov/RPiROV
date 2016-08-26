@@ -143,6 +143,16 @@ $("#depth_slider").slider({
 	}
 });
 
+
+
+function stopStepMotor() {
+		$.ajax({
+			type: 'GET',
+			dataType: 'jsonp',
+			url: domain + 'doStuff.py?mbar=0'
+		});
+}
+
 $("#updown").slider({
 	orientation: "vertical",
 	min:0,
