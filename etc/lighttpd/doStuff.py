@@ -300,7 +300,7 @@ def PID_yaw(heading_target):
 	                s.set_servo(pinLft, heading_error * K1 + 1035)
 	                s.set_servo(pinRgt, heading_error * K2 + 1035)
 	            time.sleep(.5)
-			else:
+            else:
 	            s.set_servo(pinLft, 1000)
 	            s.set_servo(pinRgt, 1000)
 	            time.sleep(.5)
