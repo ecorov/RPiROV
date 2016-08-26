@@ -115,7 +115,7 @@ $("#ctrlrod").draggable ({
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
-			url: domain + 'doStuff.py?mod=stp'
+			url: domain + 'doStuff.py?yaw=-1&lft=1000&rgt=1000'
 		});				
 	}
 });
