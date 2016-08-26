@@ -136,9 +136,9 @@ $("#depth_slider").slider({
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
-			url: domain + 'doStuff.py?depth=' + depth
+			url: domain + 'doStuff.py?mbar=' + depth
 		});	
-		console.log(domain + 'doStuff.py?depth=' + depth)
+		console.log(domain + 'doStuff.py?mbar=' + depth)
         $("#depth_target").text('Pressure_target: ' + depth + ' mbar');
 	}
 });
