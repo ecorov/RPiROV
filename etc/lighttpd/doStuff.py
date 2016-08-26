@@ -311,9 +311,44 @@ def PID_yaw(heading_target):
 tPID_yaw = threading.Thread(target=PID_yaw, args=(-1,))
 tPID_yaw.start()
 
-def PID(yaw = -1):
+def PID_yaw(yaw = -1):
 	tPID_yaw.heading_new = yaw
 
+def PID_mbar():
+    mbar_target = mbar_sensor = 1003
+    thread = threading.currentThread()    
+    thread.mbar_target = thread.mbar_new = mbar_target
+    thread.position_0 = 0
+    ## Start the loop;
+    while getattr(thread, "do_run", True):
+        if(thread.mbar_new != thread.mbar_target):
+            mbar_target = thread.mbar_new
+            thread.mbar_target = thread.mbar_new
+        if mbar_target == 0:
+            time.sleep(1)
+        else:
+            mbar_senosr = tReadMS5803.mbar
+            print mbar_senosr
+            if (mbar_senosr > 1000) & (mbar_senosr < 5000):
+                mbar_error_current  = mbar_senosr - mbar_target
+                thread.position_1 = mbar_error_current * 2
+                if thread.position_1 < -180:
+                    thread.position_1 = -180
+                elif thread.position_1 > 180:
+                    thread.position_1 = 180
+                step =  thread.position_1 - thread.position_0
+                print step
+                thread.position_0 = thread.position_1
+                stepMotor(step)
+        time.sleep(1)
+
+
+tPID_mbar = threading.Thread(target=PID_mbar)
+tPID_mbar.start()
+
+
+def PID_mbar(mbar = 0):
+	tPID_mbar.mbar_new = mbar
 
 
 def app(environ, start_response):
@@ -324,7 +359,9 @@ def app(environ, start_response):
     if "stp" in i:
         stepMotor(int(i["stp"][0]))
     if "yaw" in i:
-        PID(yaw = int(i["yaw"][0]))
+        PID_yaw(yaw = int(i["yaw"][0]))
+    if "mbar" in i:
+        PID_mbar(mbar = int(i["mbar"][0]))        
     if "lft" in i:
     	spd = int(i["lft"][0])
     	if spd < -1020:
