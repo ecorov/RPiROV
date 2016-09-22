@@ -1,3 +1,5 @@
+import smbus,time,struct
+
 class MS5803:
     osr = {256:0,512:2,1024:4,2048:6,4096:8}
     def __init__(self,address=0x76,bus=1):
