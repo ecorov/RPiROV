@@ -48,10 +48,15 @@ body {
 
 }
 
-#stopStepMotor{
-	position: absolute;
-	left:150px;
-	bottom: 50px;
+
+#stopStepMotor {
+    background-color: aqua;
+    border-radius: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    left: 200px;
+    bottom: 50px;
 }
 
 
