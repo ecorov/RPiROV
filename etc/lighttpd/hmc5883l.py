@@ -1,4 +1,6 @@
-
+import smbus,math,time,sys
+ 
+ 
 class hmc5883l:
     __scales = {
         0.88: [0, 0.73],
