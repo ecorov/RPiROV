@@ -1,7 +1,3 @@
-import smbus
-import math
-import time
-import sys
 
 class hmc5883l:
     __scales = {
