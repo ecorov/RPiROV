@@ -100,15 +100,7 @@ $("#ctrlrod").draggable ({
 				dataType: 'jsonp',
 				url: domain + 'doStuff.py?yaw='+ theta
 			});	
-		} else {
-			$("#heading_target").text("Heading_target: "+ theta);
-			$("#pwm_target").text('PWM: ' + z);
-			$.ajax({
-				type: 'GET',
-				dataType: 'jsonp',
-				url: domain + 'doStuff.py?mod=fix&pwm='+ z + '&theta=' + theta
-			});	
-		}
+		} 
 	},
 	stop: function () {
 		$("#pwm_target").text('Stop propellers!');
