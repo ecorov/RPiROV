@@ -46,7 +46,6 @@
 
 		<select id="drivemode">
   			<option value="free">Free driving</option>
-  			<option value="comp">Fix heading</option>
   			<option value="yaw">Fix yawing</option>
 		</select>
 		<select id="powerscale">
