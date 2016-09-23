@@ -208,7 +208,7 @@ def PID_mbar():
                 step =  thread.position_1 - thread.position_0
                 print step
                 thread.position_0 = thread.position_1
-                if (step > 1): stepMotor(step)
+                if (abs(step) > 1): stepMotor(step)
         time.sleep(1)
 
 
