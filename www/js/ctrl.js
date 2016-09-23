@@ -114,17 +114,17 @@ $("#ctrlrod").draggable ({
 
 $("#depth_slider").slider({
 	orientation: "vertical",
-	min:1014,
+	min:1010,
 	max:1300,
     	step:1,
 	value: 1300,
 	slide: function() {
-        	var depth = 1300 - $("#depth_slider").slider("value") + 1014
+        	var depth = 1300 - $("#depth_slider").slider("value") + 1010
         	$("#depth_target").text('Pressure_target: ' + depth + ' mbar');
 	},
 
 	stop: function() {
-        	var depth = 1300 - $("#depth_slider").slider("value") + 1014
+        	var depth = 1300 - $("#depth_slider").slider("value") + 1010
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
