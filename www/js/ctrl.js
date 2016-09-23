@@ -149,7 +149,7 @@ $("#updown").slider({
 	orientation: "vertical",
 	min:0,
 	max:10,
-    	step:0.1,
+    	step:1,
 	value: 5,
 	slide: function() {
         	var stp = $("#updown").slider("value") - 5
