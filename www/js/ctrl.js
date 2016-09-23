@@ -156,16 +156,16 @@ function stopStepMotor() {
 $("#updown").slider({
 	orientation: "vertical",
 	min:0,
-	max:30,
+	max:20,
     	step:1,
-	value: 15,
+	value: 10,
 	slide: function() {
-        	var stp = $("#updown").slider("value") - 15
+        	var stp = $("#updown").slider("value") - 10
         	$("#depth_target").text('Step: ' + stp);
 	},
 
 	stop: function() {
-        	var stp = $("#updown").slider("value") - 15
+        	var stp = $("#updown").slider("value") - 10
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
@@ -173,7 +173,7 @@ $("#updown").slider({
 		});	
 		console.log(domain + 'doStuff.py?stp=' + stp)
         	$("#depth_target").text('Step: ' + stp );
-        	$("#updown").slider({value: 15})
+        	$("#updown").slider({value: 10})
 	}
 });
 
