@@ -24,7 +24,6 @@ tReadHMC5883L = threading.Thread(target=readHMC5883L)
 tReadHMC5883L.start()
 #tReadHMC5883L.do_run = False
 
-"""
 def readMS5803():
     thread = threading.currentThread()   
     ms5803_14ba = MS5803() 
@@ -45,7 +44,7 @@ def readMS5803():
 tReadMS5803 = threading.Thread(target=readMS5803)
 tReadMS5803.start()
 #tReadMS5803.do_run = False
-"""
+
 
 
 import RPi.GPIO as G   
@@ -183,7 +182,7 @@ tPID_yaw.start()
 
 def PID_yaw(yaw = -1):
 	tPID_yaw.heading_new = yaw
-"""
+
 def PID_mbar():
     mbar_target = mbar_sensor = 0
     thread = threading.currentThread()    
@@ -209,7 +208,7 @@ def PID_mbar():
                 step =  thread.position_1 - thread.position_0
                 print step
                 thread.position_0 = thread.position_1
-                if (abs(step) > 1): stepMotor(step)
+                if (abs(step) > 2): stepMotor(step)
         time.sleep(1)
 
 tPID_mbar = threading.Thread(target=PID_mbar)
@@ -217,7 +216,7 @@ tPID_mbar.start()
 
 def PID_mbar(mbar = 0):
 	tPID_mbar.mbar_new = mbar
-"""
+
 
 def app(environ, start_response):
     start_response("200 OK", [("Content-Type", "text/html")])
