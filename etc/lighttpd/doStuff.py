@@ -180,10 +180,10 @@ def PID_yaw(heading_target):
 tPID_yaw = threading.Thread(target=PID_yaw, args=(-1,))
 tPID_yaw.start()
 
-"""
+
 def PID_yaw(yaw = -1):
 	tPID_yaw.heading_new = yaw
-
+"""
 def PID_mbar():
     mbar_target = mbar_sensor = 0
     thread = threading.currentThread()    
@@ -212,10 +212,8 @@ def PID_mbar():
                 if (abs(step) > 1): stepMotor(step)
         time.sleep(1)
 
-
 tPID_mbar = threading.Thread(target=PID_mbar)
 tPID_mbar.start()
-
 
 def PID_mbar(mbar = 0):
 	tPID_mbar.mbar_new = mbar
@@ -230,10 +228,8 @@ def app(environ, start_response):
         stepMotor(int(i["stp"][0]))
     if "yaw" in i:
         PID_yaw(yaw = int(i["yaw"][0]))
-    """    
     if "mbar" in i:
         PID_mbar(mbar = int(i["mbar"][0]))     
-    """
     if "lft" in i:
     	spd = int(i["lft"][0])
     	if spd < -1020:
@@ -265,6 +261,3 @@ WSGIServer(app).run()
 G.cleanup()
 
 
-# f = open('/var/www/js/sensors.html', 'r+')
-# sensorData = f.read()
-# f.close()
