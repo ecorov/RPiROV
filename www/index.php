@@ -22,7 +22,7 @@
             <div id="camera">
                 <a id="video_button"><img class="icon" src="img/video-1.png"></a>
                 <a id="image_button"><img class="icon" src="img/camera-1.png"></a>
-                <a id="timelapse_button"><img class="icon" src="img/timelapse-1.png"></a>
+                <!--<a id="timelapse_button"><img class="icon" src="img/timelapse-1.png"></a>-->
                 <a id="led_button"><img class="icon" src="img/led-1.png"></a>
             </div>
             <a id="download" href="preview.php"><img class="icon" src="img/download.png"></a>
