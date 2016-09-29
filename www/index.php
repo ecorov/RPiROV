@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>RPi ROV</title>
 	<link rel="stylesheet" href="css/jquery-ui.css"> 
@@ -14,8 +13,6 @@
 </head>
 
 <body onload="setTimeout('init(0, 25, 1);', 100);">
-	
-	
 	<div id="CtrlPwd"  style="display:block;">
 		Type password to control this ROV: <br>
 		<input type="text" id="ctrlpwd">
