@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>RPi ROV</title>
-	<link rel="stylesheet" href="css/jquery-ui.css"> 
-	<link rel="stylesheet" href="css/style.css"> 	
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/jquery.ui.touch-punch.min.js"></script>
-	<script src="js/script.js"></script>
-	<script src="js/pipan.js"></script> 
+  <link rel="stylesheet" href="css/jquery-ui.css"> 
+  <link rel="stylesheet" href="css/style.css"> 	
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/jquery.ui.touch-punch.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/pipan.js"></script> 
   <script src="js/md5.js"></script>  
 </head>
 
