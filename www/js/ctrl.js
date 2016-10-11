@@ -1,38 +1,19 @@
 
-$(document).ready(function(){
-        setInterval(function() {
-            $("#leak").load("js/sensors_leak.html");	
-            $("#temperature").load("js/sensors_temperature.html");
-            $("#depth_current").load("js/sensors_depth_current.html");
-            $("#heading_current").load("js/sensors_heading_current.html");
-            var theta = parseInt($("#heading_current").text().replace("Heading: ", ""))
-	    x = Math.cos((90+360-theta)/180*Math.PI)*150
-	    y = Math.sin((90+360-theta)/180*Math.PI)*150
-	    $("#rovHeading").attr("style", "right:"+parseInt(150-x)+"px;bottom:" + parseInt(150+y) + "px;background-color:red;width:20px;height:20px;position: absolute;border-radius: 10px;")
-        }, 500);
-});
-
-
-
-
-$( "#CtrlPannel" ).css( "display", "block" ) 
-$( "#CtrlPwd" ).css( "display", "none" ) 
-$( "#mjpeg_dest" ).css( "display", "block" ) 
-
 function pwd () {
 	if (md5($( "#ctrlpwd" )[0].value) == "8caf447c1cd0db7adbec6c890eb82c70") {
 		$( "#CtrlPannel" ).css( "display", "block" ) 
 		$( "#CtrlPwd" ).css( "display", "none" ) 
-		$( "#mjpeg_dest" ).css( "display", "block" ) 
 	} else {
 		$( "#CtrlPwd" ).css( "display", "none" ) 
 		alert("You can't control this ROV, but you can receive its video stream");
-		$( "#mjpeg_dest" ).css( "display", "block" ) 
 	}
 }
 
 
+
+
 var domain = 'http://' + document.domain + ':8080/'
+
 var pwmLft0 = 1000
 var pwmRgt0 = 1000
 $("#ctrlrod").draggable ({
@@ -41,131 +22,79 @@ $("#ctrlrod").draggable ({
 	revertDuration: 10,
 	drag: function() {	
 		var x = Number($("#ctrlrod").css("left").replace("px", "")) - 120
-		var y = 120 - Number($("#ctrlrod").css("top" ).replace("px", ""))
-		var z = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))/1.69) 
-
-		if (x >= 0) {
-			theta = parseInt(Math.atan2(x,y)/Math.PI*180)
-		} else {
-			theta = parseInt(360 + Math.atan2(x,y)/Math.PI*180)
-		}
-
-		var mode = $("#drivemode").val()
-		var powerscale = $("#powerscale").val()
-		if (powerscale == "slow") {
-			var scale = 3; 
-		} else { 
-			var scale = 9; 
-		}
-		var z = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))/1.69) * scale + 1000
-
-
-		if (mode == "free") {
-			var pwm1 = parseInt(Math.abs(y))
-			var pwm2 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))			
+		var y = Number($("#ctrlrod").css("top" ).replace("px", "")) - 120
+		if (y < 0) {
+			var v0 = parseInt(Math.abs(y))
+			var v1 = parseInt(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)))
+			var scale = 2
 			if (x < 0) {
-				var pwmLft = pwm2*scale + 1000
-				var pwmRgt = pwm1*scale + 1000
+				var pwmLft = v1*scale + 1000
+				var pwmRgt = v0*scale + 1000
 			} else {
-				var pwmLft = pwm1*scale + 1000
-				var pwmRgt = pwm2*scale + 1000
+				var pwmLft = v0*scale + 1000
+				var pwmRgt = v1*scale + 1000
 			}
-			if (y < 0) {
-				var pwmLft = -pwmLft
-				var pwmRgt = -pwmRgt
-			}
-			if (pwmLft != pwmLft0) {
-				pwmLft0 = pwmLft
-				$("#pwm_target").text('PWM_Left: '+ pwmLft);
+			console.log(pwmLft)
+			console.log(pwmRgt)
+			var pwmLft1 = Math.floor(pwmLft/10) * 10
+			var pwmRgt1 = Math.floor(pwmRgt/10) * 10
+			
+			if (pwmLft1 != pwmLft0) {
+				pwmLft0 = pwmLft1
+				$("#debug").text('Left: '+ pwmLft1);
 				$.ajax({
 					type: 'GET',
 					dataType: 'jsonp',
-					url: domain + 'doStuff.py?mod=fre&lft='+pwmLft
-				});
+					url: domain + 'doStuff.py?lft='+pwmLft1
+				});	
 			}
-			if (pwmRgt != pwmRgt0) {
-				pwmRgt0 = pwmRgt
-				$("#pwm_target").text('PWM_Right: ' + pwmRgt);
+			if (pwmRgt1 != pwmRgt0) {
+				pwmRgt0 != pwmRgt1
+				$("#debug").text('Right: ' + pwmRgt1);
 				$.ajax({
 					type: 'GET',
 					dataType: 'jsonp',
-					url: domain + 'doStuff.py?mod=fre&rgt=' + pwmRgt
-				});
+					url: domain + 'doStuff.py?rgt=' + pwmRgt1
+				});	
 			}
-		} else if (mode == "yaw") {
-			$("#heading_target").text("Heading_target: "+ theta);
-			$("#pwm_target").text('PWM: ' + z);
+		} else {
+			$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
 			$.ajax({
 				type: 'GET',
 				dataType: 'jsonp',
-				url: domain + 'doStuff.py?yaw='+ theta
+				url: domain + 'doStuff.py?lft=1000&rgt=1000'
 			});	
-		} 
+		}
 	},
 	stop: function () {
-		$("#pwm_target").text('Stop propellers!');
+		$("#debug").text('Left: '+ 1000 + '   &   Right: ' + 1000);
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
-			url: domain + 'doStuff.py?yaw=-1&lft=1000&rgt=1000'
+			url: domain + 'doStuff.py?lft=1000&rgt=1000'
 		});				
 	}
 });
 
-$("#depth_slider").slider({
-	orientation: "vertical",
-	min:1010,
-	max:1300,
-    	step:1,
-	value: 1300,
-	slide: function() {
-        	var depth = 1300 - $("#depth_slider").slider("value") + 1010
-        	$("#depth_target").text('Pressure_target: ' + depth + ' mbar');
-	},
-
-	stop: function() {
-        	var depth = 1300 - $("#depth_slider").slider("value") + 1010
-		$.ajax({
-			type: 'GET',
-			dataType: 'jsonp',
-			url: domain + 'doStuff.py?mbar=' + depth
-		});	
-		console.log(domain + 'doStuff.py?mbar=' + depth)
-        $("#depth_target").text('Pressure_target: ' + depth + ' mbar');
-	}
-});
-
-
-
-function stopStepMotor() {
-		$.ajax({
-			type: 'GET',
-			dataType: 'jsonp',
-			url: domain + 'doStuff.py?mbar=0'
-		});
-}
-
-$("#updown").slider({
+var p0
+$( "#slider" ).slider({
 	orientation: "vertical",
 	min:0,
-	max:10,
-    	step:1,
-	value: 5,
-	slide: function() {
-        	var stp = $("#updown").slider("value") - 5
-        	$("#depth_target").text('Step: ' + stp);
-	},
-
+	max:380,
+	value: 200,
+	start: function() {
+		p0 = $( "#slider" ).slider( "value" )
+		console.log(p0)
+	}, 
 	stop: function() {
-        	var stp = $("#updown").slider("value") - 5
+		var step = $( "#slider" ).slider( "value" )-p0
+		$("#debug").text('Current:' + $( "#slider" ).slider( "value" ) + "; moved: " + step);
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
-			url: domain + 'doStuff.py?stp=' + stp
+			url: domain + 'doStuff.py?stp=' + step
 		});	
-		console.log(domain + 'doStuff.py?stp=' + stp)
-        	$("#depth_target").text('Step: ' + stp );
-        	$("#updown").slider({value: 5})
+		console.log(domain + 'doStuff.py?stp=' + step)
 	}
 });
 
@@ -198,8 +127,4 @@ $("#showsys").on('click', function() {
 		$( "#syscmd" ).css( "display", "none" ) 
   }
 });
-
-
-
-
 

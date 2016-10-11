@@ -1,11 +1,5 @@
-sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion python-flup lighttpd python-dev python-setuptools
+sudo apt-get install -y apache2 php5 libapache2-mod-php5 gpac motion python-flup lighttpd python-setuptools
 sudo easy_install -U RPIO
-# on RPi 3
-#cd ~
-#git clone https://github.com/metachris/RPIO.git --branch v2 --single-branch
-#cd RPIO
-#sudo python setup.py install
-#sudo easy_install -U RPIO
 
 sudo cp -r www/* /var/www/
 sudo mkdir -p /var/www/media
@@ -48,13 +42,7 @@ if [ ! -e /var/www/raspimjpeg ]; then
   sudo ln -s /etc/raspimjpeg /var/www/raspimjpeg
 fi
 sudo cp etc/lighttpd/doStuff.py /var/www/html
-sudo cp etc/lighttpd/MS5803.py /var/www/html
-sudo cp etc/lighttpd/hmc5883l.py /var/www/html
-
 sudo chmod 755 /var/www/html/doStuff.py
-sudo chmod 755 /var/www/html/MS5803.py
-sudo chmod 755 /var/www/html/hmc5883l.py
-
 if [ ! -e /usr/bin/pythonRoot ]; then
   sudo cp /usr/bin/python2.7 /usr/bin/pythonRoot
   sudo chmod u+s /usr/bin/pythonRoot
