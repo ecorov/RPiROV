@@ -12,7 +12,7 @@ Test:
 
 
  
- Git clone https://github.com/withr/RPiROV.git
+git clone https://github.com/ecorov/RPiROV.git
 git config remote.origin.url git@github.com:withr/RPiROV.git
 
 
